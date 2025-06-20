@@ -8,8 +8,14 @@
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
+             
+    <Application.Resources>
+        <FontFamily x:Key="LexendDeca">avares://Kards.NET/Assets/Fonts/LexendDeca-Regular.ttf#Lexend Deca</FontFamily>
+    </Application.Resources>
   
     <Application.Styles>
         <FluentTheme />
+        
+        
     </Application.Styles>
 </Application>
