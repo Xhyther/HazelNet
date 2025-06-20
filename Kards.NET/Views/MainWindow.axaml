@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Kards.NET.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Kards.NET.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Kards.NET"
+        Background="#DDE0E4">
+        
+        <SplitView IsPaneOpen="True"
+                   DisplayMode="Inline"
+                   OpenPaneLength="200">
+            
+            <SplitView.Pane>
+                <StackPanel Orientation="Vertical" Margin="10" Width="160">
+                    <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center" Margin="0,0,0,10">
+                       
+                        <Image Grid.Column="0" Height="30" Width="30"
+                               Source="../Assets/KardsIcon.png"></Image>
+                        <Label Grid.Column="1" 
+                               FontWeight="Bold"
+                               FontSize="16"
+                               HorizontalAlignment="Stretch">Kards.Net</Label>
+                    </Grid>
+                    <Rectangle Height="30" Margin="10,5" Fill="BlueViolet"></Rectangle>
+                    <Rectangle Height="30" Margin="10,5" Fill="Brown"></Rectangle>
+                    <Rectangle Height="30" Margin="10,5" Fill="Gold"></Rectangle>
+                    <Rectangle Height="30" Margin="10,5" Fill="DarkSlateGray"></Rectangle>
+                </StackPanel>
+            </SplitView.Pane>
+                
+        </SplitView>
+
+        
+
+</Window>
+
+<!--Color Pallete List
+Celest:         #ADEEE3
+Oxford Blue:    #OC1B33
+Reseda Green:   #71816D
+Plum:           #8E518D
+Coral Pink:     #FE938C
+
+Seasalt:         #FAFAFA
+BG:              #FFEDEC-->

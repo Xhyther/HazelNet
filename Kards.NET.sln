@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kards.NET", "Kards.NET\Kards.NET.csproj", "{9CE4E94E-AC3F-4D76-B9F3-1707097B8F4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CE4E94E-AC3F-4D76-B9F3-1707097B8F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE4E94E-AC3F-4D76-B9F3-1707097B8F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE4E94E-AC3F-4D76-B9F3-1707097B8F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE4E94E-AC3F-4D76-B9F3-1707097B8F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
