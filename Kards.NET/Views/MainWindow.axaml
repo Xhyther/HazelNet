@@ -15,20 +15,25 @@
                    OpenPaneLength="200">
             
             <SplitView.Pane>
-                <StackPanel Orientation="Vertical" Margin="10" Width="160">
-                    <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical" Margin="10">
+                    <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center" Margin="0,0,0,20" >
                        
-                        <Image Grid.Column="0" Height="30" Width="30"
-                               Source="../Assets/KardsIcon.png"></Image>
+                        <Image Grid.Column="0" Height="25" Width="25"
+                               Source="../Assets/avalonia-logo.ico"></Image>
                         <Label Grid.Column="1" 
                                FontWeight="Bold"
-                               FontSize="16"
-                               HorizontalAlignment="Stretch">Kards.Net</Label>
+                               FontFamily="Jettbrains Mono"
+                               FontSize="20"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center">Kards.Net</Label>
                     </Grid>
-                    <Rectangle Height="30" Margin="10,5" Fill="BlueViolet"></Rectangle>
-                    <Rectangle Height="30" Margin="10,5" Fill="Brown"></Rectangle>
-                    <Rectangle Height="30" Margin="10,5" Fill="Gold"></Rectangle>
-                    <Rectangle Height="30" Margin="10,5" Fill="DarkSlateGray"></Rectangle>
+                    <StackPanel Orientation="Vertical">
+                        <Rectangle Height="30" Margin="0,5" Fill="BlueViolet"></Rectangle>
+                        <Rectangle Height="30" Margin="0,5" Fill="Brown"></Rectangle>
+                        <Rectangle Height="30" Margin="0,5" Fill="Gold"></Rectangle>
+                        <Rectangle Height="30" Margin="0,5" Fill="DarkSlateGray"></Rectangle>
+                    </StackPanel>
+                    
                 </StackPanel>
             </SplitView.Pane>
                 
