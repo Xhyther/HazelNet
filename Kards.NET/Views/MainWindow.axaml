@@ -3,6 +3,7 @@
         xmlns:vm="using:Kards.NET.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Kards.NET.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Kards.NET.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -10,9 +11,9 @@
         Title="Kards.NET"
         Background="#DDE0E4">
         
-        <SplitView IsPaneOpen="True"
-                   DisplayMode="Inline"
-                   OpenPaneLength="200">
+    <SplitView IsPaneOpen="True"
+               DisplayMode="Inline"
+               OpenPaneLength="200">
             
             <SplitView.Pane>
                 <StackPanel Orientation="Vertical" Margin="10">
@@ -28,7 +29,7 @@
                                VerticalAlignment="Center">Kards.Net</Label>
                     </Grid>
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
-                        <Button Height="40" Width="180" Background="Transparent" >
+                        <Button Command="{Binding DashboardViewCommand}" Height="40" Width="180" Background="Transparent" >
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <Image Source="../Assets/Image/home.png" Width="15" Height="15"  Margin="5,0"> </Image>
                                 <TextBlock FontWeight="Medium"
@@ -37,8 +38,8 @@
                                     Dashboard
                                 </TextBlock>
                             </StackPanel>
-                        </Button>
-                        <Button Height="40" Width="180" Background="Transparent" >
+                        </Button>    
+                        <Button Command="{Binding DeckViewCommand}" Height="40" Width="180" Background="Transparent" >
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <Image Source="../Assets/Image/folder.png" Width="15" Height="15"  Margin="5,0"> </Image>
                                 <TextBlock FontWeight="Medium"
@@ -47,7 +48,7 @@
                                 </TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button Height="40" Width="180" Background="Transparent" >
+                        <Button Command="{Binding StudyViewCommand}" Height="40" Width="180" Background="Transparent" >
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <Image Source="../Assets/Image/study.png" Width="15" Height="15"  Margin="5,0"> </Image>
                                 <TextBlock FontWeight="Medium"
@@ -56,7 +57,7 @@
                                 </TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button Height="40" Width="180" Background="Transparent" >
+                        <Button Command="{Binding StatsViewCommand}" Height="40" Width="180" Background="Transparent" >
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                 <Image Source="../Assets/Image/statistics.png" Width="15" Height="15"  Margin="5,0"> </Image>
                                 <TextBlock FontWeight="Medium"
@@ -66,14 +67,15 @@
                             </StackPanel>
                         </Button>
                         
-                        <Rectangle Height="30" Margin="0,5" Fill="BlueViolet"></Rectangle>
-                        <Rectangle Height="30" Margin="0,5" Fill="Brown"></Rectangle>
-                        <Rectangle Height="30" Margin="0,5" Fill="Gold"></Rectangle>
-                        <Rectangle Height="30" Margin="0,5" Fill="DarkSlateGray"></Rectangle>
+                        
                     </StackPanel>
                     
                 </StackPanel>
             </SplitView.Pane>
+            
+            <SplitView.Content>
+               <TransitioningContentControl Content="{Binding CurrentPage}"></TransitioningContentControl>
+            </SplitView.Content>
                 
         </SplitView>
 
