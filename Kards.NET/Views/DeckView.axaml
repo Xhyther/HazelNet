@@ -2,7 +2,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Kards.NET.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Kards.NET.Views.DeckView">
-    Welcome to Deck View!
+             x:Class="Kards.NET.Views.DeckView"
+             x:DataType="viewModels:DeckViewModel">
+    
+    <Design.DataContext>
+        <viewModels:DeckViewModel/>
+    </Design.DataContext>
+    
+    
+    <Grid RowDefinitions="Auto, *, 2*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Margin="20,0">
+            <TextBlock Grid.Column="0" VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       TextAlignment="Center"
+                       FontFamily="Jettbrains Mono"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Text="{Binding PageTitle}"
+                       TextWrapping="Wrap" />
+            <Button Grid.Column="2" Background="#0C1B33">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="../Assets/Image/plus.png" Width="13" Height="13"  Margin="5,0"> </Image>
+                    <TextBlock FontWeight="Medium"
+                               FontSize="15"
+                               Foreground="#FAFAFA"
+                               FontFamily="{StaticResource LexendDeca}">Create Deck
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Rectangle Grid.Row="1" Fill = "CadetBlue"></Rectangle>
+        
+        <Rectangle Grid.Row="2" Fill = "Black"></Rectangle>
+    </Grid>
+   
 </UserControl>

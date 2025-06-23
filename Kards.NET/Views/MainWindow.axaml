@@ -3,7 +3,6 @@
         xmlns:vm="using:Kards.NET.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:Kards.NET.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Kards.NET.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -16,14 +15,16 @@
                OpenPaneLength="200">
             
             <SplitView.Pane>
-                <StackPanel Orientation="Vertical" Margin="10">
+                
+                <Border Background="#F9F5F6">
+                    <StackPanel Orientation="Vertical" Margin="10">
                     <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center" Margin="0,0,0,20" >
                        
                         <Image Grid.Column="0" Height="25" Width="25"
                                Source="../Assets/Image/avalonia-logo.ico"></Image>
                         <Label Grid.Column="1" 
                                FontWeight="Bold"
-                               FontFamily="Jettbrains Mono"
+                               FontFamily="{StaticResource LexendDeca}"
                                FontSize="20"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center">Kards.Net</Label>
@@ -71,10 +72,27 @@
                     </StackPanel>
                     
                 </StackPanel>
+                </Border>
+                
             </SplitView.Pane>
             
             <SplitView.Content>
-               <TransitioningContentControl Content="{Binding CurrentPage}"></TransitioningContentControl>
+                
+                <Border Background="#E8F9FF">
+                    <Grid RowDefinitions="Auto, *">
+                        <Border Padding="10" Background="#F9F5F6" Margin="0,0,0,20">
+                            <Grid Grid.Row="0"  ColumnDefinitions=" *, Auto, Auto, Auto" Opacity="75"  >
+                                <TextBox Grid.Column="1" Watermark="Search A Card"></TextBox>
+                                <Rectangle Grid.Column="2" Height="30" Width="30" Fill="DarkGreen" Margin="5,0"></Rectangle>
+                                <Rectangle Grid.Column="3" Height="30" Width="30" Fill="DeepSkyBlue" Margin="5,0"></Rectangle>
+                            </Grid>
+                        </Border>
+                    
+                        <TransitioningContentControl Grid.Row="1" Content="{Binding CurrentPage}"></TransitioningContentControl>
+                    </Grid>
+                </Border>
+                
+                
             </SplitView.Content>
                 
         </SplitView>
