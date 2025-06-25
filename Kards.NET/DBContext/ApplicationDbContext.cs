@@ -12,4 +12,10 @@ public class ApplicationDbContext : DbContext
     {
         optionsBuilder.UseSqlite("Data Source=Kards.db");
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new CardsEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new DecksEntityTypeConfiguration());
+    }
 }
