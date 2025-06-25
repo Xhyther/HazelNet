@@ -8,4 +8,7 @@ public class Cards
     public required string CardName { get; set; }
     public string? CardDescription { get; set; }
     public DateTime CreationDate { get; set; } = DateTime.Now;
+    
+    public int DeckId { get; set; }
+    public Decks Decks { get; set; } = new Decks();
 }
