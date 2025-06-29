@@ -13,4 +13,5 @@ public class Decks
     public DateTime LastAcess { get; set; }
     
     public ICollection<Cards> Cards { get; set; } = new List<Cards>();
+    public int NumberOfCards { get; set; }
 }

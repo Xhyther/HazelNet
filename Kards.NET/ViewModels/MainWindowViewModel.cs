@@ -21,6 +21,7 @@ public partial class MainWindowViewModel : ViewModelBase
    {
         CurrentPage = new DashboardViewModel();
         PageTitle = "Dashboard";
+        
    }
    
    [RelayCommand]
@@ -28,6 +29,7 @@ public partial class MainWindowViewModel : ViewModelBase
    {
       CurrentPage = new DeckViewModel();
       PageTitle = "My Decks";
+      
    }
    
    [RelayCommand]
