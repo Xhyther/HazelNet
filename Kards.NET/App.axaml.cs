@@ -1,16 +1,22 @@
+using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
+using Kards.NET.DBContext;
+using Kards.NET.Services;
 using Kards.NET.ViewModels;
 using Kards.NET.Views;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Kards.NET;
 
 public partial class App : Application
 {
+    public static IServiceProvider Services { get; private set; }
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -18,6 +24,17 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        
+        var serviceCollection = new ServiceCollection();
+        
+        serviceCollection.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlite("Data Source=Kards.db"));
+        
+        serviceCollection.AddTransient<DeckService>();
+        //Add here card Service
+        
+        Services =  serviceCollection.BuildServiceProvider();
+        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 

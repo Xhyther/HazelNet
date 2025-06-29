@@ -7,11 +7,7 @@ public class ApplicationDbContext : DbContext
 {
     public DbSet<Decks> Decks { get; set; }
     public DbSet<Cards> Cards { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlite("Data Source=Kards.db");
-    }
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
