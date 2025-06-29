@@ -11,24 +11,6 @@
         <viewModels:DeckViewModel/>
     </Design.DataContext>
     
-    
-    <StackPanel Margin="20">
-        <TextBlock Text="Decks" FontSize="24" Margin="0 0 0 10"/>
-        
-        <ItemsControl ItemsSource="{Binding Decks}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="10">
-                        <TextBlock Text="{Binding DeckName}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding DeckDescription}" FontStyle="Italic"/>
-                        <TextBlock Text="{Binding CreationDate}" FontSize="10"/>
-                        <TextBlock Text="{Binding LastAcess}" FontSize="10"/>
-                        <TextBlock Text="{Binding NumberOfCards}" FontSize="10"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-
-    </StackPanel>
+   
    
 </UserControl>
