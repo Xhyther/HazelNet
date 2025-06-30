@@ -32,6 +32,7 @@ public partial class App : Application
         
         serviceCollection.AddTransient<DeckService>();
         //Add here card Service
+        serviceCollection.AddTransient<CardService>();
         
         Services =  serviceCollection.BuildServiceProvider();
         
