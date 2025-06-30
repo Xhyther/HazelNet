@@ -25,11 +25,6 @@ public class CardService
         return await _db.Cards.Where(x => x.DeckId == deckId).ToListAsync();
     }
 
-    public async Task CreateCardAsync(Cards card)
-    {
-        _db.Cards.Add(card);
-        await _db.SaveChangesAsync();
-    }
     
     public async Task UpdateCardAsync(Cards card)
     {
@@ -47,4 +42,6 @@ public class CardService
            await _db.SaveChangesAsync();
        }
     }
+    
+    
 }
