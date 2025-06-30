@@ -16,6 +16,7 @@ public class DeckViewModel : ViewModelBase
 
    public DeckViewModel()
    {
+      //Dependency Injection
       _deckService = App.Services.GetRequiredService<DeckService>();
    }
 }
