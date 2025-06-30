@@ -20,8 +20,31 @@ public class CardService
     public async Task<List<Cards>> GetAllCardsAsync() => await _db.Cards.ToListAsync();
 
     //List all Cards by DeckId
-    public async Task<List<Cards>> GetAllCardsByDeckAsync(int DeckID)
+    public async Task<List<Cards>> GetAllCardsByDeckAsync(int deckId)
     {
-        return await _db.Cards.Where(x => x.DeckId == DeckID).ToListAsync();
+        return await _db.Cards.Where(x => x.DeckId == deckId).ToListAsync();
+    }
+
+    public async Task CreateCardAsync(Cards card)
+    {
+        _db.Cards.Add(card);
+        await _db.SaveChangesAsync();
+    }
+    
+    public async Task UpdateCardAsync(Cards card)
+    {
+        _db.Cards.Update(card);
+        await _db.SaveChangesAsync();
+    }
+    
+    //Delete Cards by specific ID
+    public async Task DeleteCardAsync(int id)
+    {
+       var cards =  await _db.Cards.FindAsync(id);
+       if (cards != null)
+       {
+           _db.Cards.Remove(cards);
+           await _db.SaveChangesAsync();
+       }
     }
 }
