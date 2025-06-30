@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Kards.NET.DBContext;
 using Kards.NET.Models;
@@ -20,11 +19,7 @@ public class CardService
     public async Task<List<Cards>> GetAllCardsAsync() => await _db.Cards.ToListAsync();
 
     //List all Cards by DeckId
-    public async Task<List<Cards>> GetAllCardsByDeckAsync(int deckId)
-    {
-        return await _db.Cards.Where(x => x.DeckId == deckId).ToListAsync();
-    }
-
+    
     
     public async Task UpdateCardAsync(Cards card)
     {
