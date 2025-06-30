@@ -30,9 +30,9 @@ public partial class App : Application
         serviceCollection.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite("Data Source=Kards.db"));
         
-        serviceCollection.AddTransient<DeckService>();
+        serviceCollection.AddScoped<DeckService>();
         //Add here card Service
-        serviceCollection.AddTransient<CardService>();
+        serviceCollection.AddScoped<CardService>();
         
         Services =  serviceCollection.BuildServiceProvider();
         
