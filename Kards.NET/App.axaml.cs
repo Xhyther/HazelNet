@@ -34,6 +34,13 @@ public partial class App : Application
         //Add here card Service
         serviceCollection.AddScoped<CardService>();
         
+      
+        serviceCollection.AddTransient<DashboardViewModel>();
+        serviceCollection.AddTransient<DeckViewModel>();
+        serviceCollection.AddTransient<StatsViewModel>();
+        serviceCollection.AddTransient<StudyViewModel>();
+        serviceCollection.AddTransient<MainWindowViewModel>(); // final shell
+        
         Services =  serviceCollection.BuildServiceProvider();
         
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
@@ -41,10 +48,12 @@ public partial class App : Application
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
             // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
             DisableAvaloniaDataAnnotationValidation();
+            var mainVM = Services.GetRequiredService<MainWindowViewModel>();
+
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel(),
-            };
+                DataContext = mainVM
+            };;
         }
 
         base.OnFrameworkInitializationCompleted();
