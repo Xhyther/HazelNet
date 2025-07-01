@@ -8,6 +8,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<Decks> Decks { get; set; }
     public DbSet<Cards> Cards { get; set; }
     
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options) {}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
