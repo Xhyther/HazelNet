@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using Kards.NET.Models;
-using System.Linq;
 using Kards.NET.Services;
-using Microsoft.Extensions.DependencyInjection;
 
 
 namespace Kards.NET.ViewModels;
@@ -14,9 +11,19 @@ public class DeckViewModel : ViewModelBase
 
    public ObservableCollection<Decks> Decks { get; set; } = new();
 
-   public DeckViewModel()
+   //Overload Constructor for testing
+   
+   
+   public DeckViewModel(DeckService deckService)
    {
       //Dependency Injection
-      _deckService = App.Services.GetRequiredService<DeckService>();
+      _deckService = deckService;
+   }
+
+   public async void LoadAAllDecks()
+   {
+      var decks = await _deckService.GetAllDecks();
+      foreach (var deck in decks)
+         Decks.Add(deck);
    }
 }

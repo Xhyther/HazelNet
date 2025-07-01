@@ -1,12 +1,32 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Kards.NET.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
    [ObservableProperty]
-   private ViewModelBase _currentPage = new DashboardViewModel();
+   private ViewModelBase _currentPage;
+   
+   private readonly DashboardViewModel _dashboardViewModel;
+   private readonly DeckViewModel _deckViewModel;
+   private readonly StatsViewModel _statsViewModel;
+   private readonly StudyViewModel _studyViewModel;
+
+   public MainWindowViewModel(
+      DashboardViewModel dashboardViewModel,
+      DeckViewModel deckViewModel,
+      StatsViewModel statsViewModel,
+      StudyViewModel studyViewModel)
+   {
+      _dashboardViewModel = dashboardViewModel;
+      _deckViewModel = deckViewModel;
+      _statsViewModel = statsViewModel;
+      _studyViewModel = studyViewModel;
+
+      _currentPage = _dashboardViewModel; // default view
+   }
    
    private string _pageTitle = "Dashboard";
 
@@ -19,7 +39,7 @@ public partial class MainWindowViewModel : ViewModelBase
    [RelayCommand]
    public void DashboardView()
    {
-        CurrentPage = new DashboardViewModel();
+        CurrentPage = App.Services.GetRequiredService<DashboardViewModel>();
         PageTitle = "Dashboard";
         
    }
@@ -27,7 +47,7 @@ public partial class MainWindowViewModel : ViewModelBase
    [RelayCommand]
    public void DeckView()
    {
-      CurrentPage = new DeckViewModel();
+      CurrentPage = App.Services.GetRequiredService<DeckViewModel>();
       PageTitle = "My Decks";
       
    }
@@ -35,14 +55,14 @@ public partial class MainWindowViewModel : ViewModelBase
    [RelayCommand]
    public void StudyView()
    {
-      CurrentPage = new StudyViewModel();
+      CurrentPage = App.Services.GetRequiredService<StudyViewModel>();
       PageTitle = "Study";
    }
    
    [RelayCommand]
    public void StatsView()
    {
-      CurrentPage = new StatsViewModel();
+      CurrentPage =  App.Services.GetRequiredService<StatsViewModel>();
       PageTitle = "Statistics";
    }
 }

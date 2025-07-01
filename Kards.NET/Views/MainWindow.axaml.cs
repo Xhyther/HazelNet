@@ -1,6 +1,6 @@
 using Avalonia.Controls;
-using Avalonia.Media;
 using Kards.NET.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Kards.NET.Views;
 
@@ -9,6 +9,6 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        DataContext = new MainWindowViewModel();
+        DataContext = App.Services.GetRequiredService<MainWindowViewModel>();
     }
 }
