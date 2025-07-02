@@ -1,11 +1,13 @@
 ﻿using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.Input;
 using Kards.NET.Models;
 using Kards.NET.Services;
+using Kards.NET.Views;
 
 
 namespace Kards.NET.ViewModels;
 
-public class DeckViewModel : ViewModelBase
+public partial class DeckViewModel : ViewModelBase
 {
    private readonly DeckService _deckService;
 
@@ -26,4 +28,12 @@ public class DeckViewModel : ViewModelBase
       foreach (var deck in decks)
          Decks.Add(deck);
    }
+
+   [RelayCommand]
+   public void CreateNewDeckCommand()
+   {
+      var window = new CreateCardWindow();
+      window.Show();
+   }
+   
 }
