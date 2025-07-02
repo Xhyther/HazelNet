@@ -39,6 +39,9 @@ public partial class App : Application
         serviceCollection.AddTransient<DeckViewModel>();
         serviceCollection.AddTransient<StatsViewModel>();
         serviceCollection.AddTransient<StudyViewModel>();
+        
+        serviceCollection.AddTransient<CreateCardViewModel>();
+        
         serviceCollection.AddTransient<MainWindowViewModel>(); // final shell
         
         Services =  serviceCollection.BuildServiceProvider();
