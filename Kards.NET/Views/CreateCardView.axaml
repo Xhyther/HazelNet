@@ -3,13 +3,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:Kards.NET.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="300"
              x:Class="Kards.NET.Views.CreateCardView"
              x:DataType="viewModels:CreateCardViewModel">
     
     <Design.DataContext>
         <viewModels:CreateCardViewModel/>
     </Design.DataContext>
-    Welcome to Avalonia!
+
+    <Border BorderBrush="Black" CornerRadius="15" VerticalAlignment="Center" Padding="20">
+        <StackPanel Orientation="Vertical"  Margin="20,0">
+            <TextBlock Margin="0 5" >Title:</TextBlock>
+            <TextBox Watermark="Enter Title of Card here..."/>
+            <TextBlock Margin="0 5" >Back:</TextBlock>
+            <TextBox Watermark="Enter definition here..." Height="100" AcceptsReturn="True" TextWrapping="Wrap"/>
+        </StackPanel>
+    </Border>
     
 </UserControl>
