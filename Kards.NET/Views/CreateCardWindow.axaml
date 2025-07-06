@@ -7,9 +7,7 @@
         x:Class="Kards.NET.Views.CreateCardWindow"
         Title="Create Card"
         Background="Transparent"
-        TransparencyLevelHint="Transparent"
-        >
-    
+        TransparencyLevelHint="Transparent">
         
         <views:CreateCardView/>
 </Window>

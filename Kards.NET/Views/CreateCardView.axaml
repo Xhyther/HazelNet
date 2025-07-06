@@ -7,9 +7,6 @@
              x:Class="Kards.NET.Views.CreateCardView"
              x:DataType="viewModels:CreateCardViewModel">
     
-    <Design.DataContext>
-        <viewModels:CreateCardViewModel/>
-    </Design.DataContext>
 
     <Border BorderBrush="Black" CornerRadius="15" VerticalAlignment="Center" Padding="20">
         <StackPanel Orientation="Vertical"  Margin="20,0">
