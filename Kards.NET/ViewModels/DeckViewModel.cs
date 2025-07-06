@@ -32,7 +32,7 @@ public partial class DeckViewModel : ViewModelBase
    [RelayCommand]
    public void CreateNewDeckCommand()
    {
-      var window = new CreateCardWindow();
+      var window = new CreateDeckWindow();
       window.Show();
    }
    
