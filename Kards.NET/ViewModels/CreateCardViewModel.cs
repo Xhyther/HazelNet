@@ -4,11 +4,11 @@ namespace Kards.NET.ViewModels;
 
 public class CreateCardViewModel
 {
-    private readonly DeckService _deckService;
+    private readonly CardService _cardService;
     
-    public CreateCardViewModel(DeckService deckService)
+    public CreateCardViewModel(CardService cardService)
     {
         //Dependency Injection
-        _deckService = deckService;
+        _cardService = cardService;
     }
 }
