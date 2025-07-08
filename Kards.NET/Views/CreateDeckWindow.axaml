@@ -5,9 +5,10 @@
         xmlns:views="clr-namespace:Kards.NET.Views"
         mc:Ignorable="d" Width="400" Height="150"
         x:Class="Kards.NET.Views.CreateDeckWindow"
-        WindowState="Normal"
         Title="Create Deck"
-        TransparencyLevelHint="Transparent">
+        TransparencyLevelHint="Transparent"
+        SystemDecorations="None"
+        WindowStartupLocation="CenterOwner">
     
         <views:CreateDeckView/>
 </Window>
