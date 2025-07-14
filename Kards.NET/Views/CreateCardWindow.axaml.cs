@@ -11,6 +11,5 @@ public partial class CreateCardWindow : Window
     public CreateCardWindow()
     {
         InitializeComponent();
-        DataContext = App.Services.GetRequiredService<CreateCardViewModel>();
     }
 }
