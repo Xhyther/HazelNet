@@ -40,8 +40,8 @@ public partial class App : Application
         serviceCollection.AddTransient<StatsViewModel>();
         serviceCollection.AddTransient<StudyViewModel>();
         
-        serviceCollection.AddTransient<CreateCardViewModel>();
-        serviceCollection.AddTransient<CreateDeckViewModel>();
+        serviceCollection.AddTransient<CreateCardWindowViewModel>();
+        serviceCollection.AddTransient<CreateDeckWindowViewModel>();
         
         serviceCollection.AddTransient<MainWindowViewModel>(); // final shell
         
