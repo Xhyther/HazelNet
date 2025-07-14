@@ -9,5 +9,12 @@
         Background="Transparent"
         TransparencyLevelHint="Transparent">
         
-        <views:CreateCardView/>
+        <Border BorderBrush="Black" CornerRadius="15" VerticalAlignment="Center" Padding="20">
+                <StackPanel Orientation="Vertical"  Margin="20,0">
+                        <TextBlock Margin="0 5" >Title:</TextBlock>
+                        <TextBox Watermark="Enter Title of Card here..."/>
+                        <TextBlock Margin="0 5" >Back:</TextBlock>
+                        <TextBox Watermark="Enter definition here..." Height="100" AcceptsReturn="True" TextWrapping="Wrap"/>
+                </StackPanel>
+        </Border>
 </Window>
