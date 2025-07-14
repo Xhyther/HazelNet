@@ -8,7 +8,7 @@ public partial class CreateDeckWindow : Window
 {
     public CreateDeckWindow()
     {
-        DataContext = App.Services.GetRequiredService<CreateDeckViewModel>();
+
         InitializeComponent();
     }
 }
