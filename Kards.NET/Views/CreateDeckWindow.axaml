@@ -23,7 +23,7 @@
                                         Foreground="#f1f4f8"
                                         Content="Enter"
                                         HorizontalContentAlignment="Center"/>
-                                <Button Grid.Column="2" Width="70" Height="30" 
+                                <Button Click= "CancelDeckCreation" Grid.Column="2" Width="70" Height="30" 
                                         Margin="5,0, 0 ,0"
                                         Background="#EDAFB8"
                                         Foreground="#f1f4f8"
