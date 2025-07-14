@@ -2,11 +2,11 @@
 
 namespace Kards.NET.ViewModels;
 
-public class CreateDeckViewModel
+public class CreateDeckWindowViewModel
 {
     private readonly DeckService _deckService;
 
-    public CreateDeckViewModel(DeckService deckService)
+    public CreateDeckWindowViewModel(DeckService deckService)
     {
         _deckService = deckService;
     }
