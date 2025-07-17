@@ -53,9 +53,6 @@ namespace Kards.NET.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("DeckDescription")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("DeckName")
                         .IsRequired()
                         .HasMaxLength(100)
