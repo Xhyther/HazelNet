@@ -1,18 +1,20 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Kards.NET.Models;
 using CommunityToolkit.Mvvm.Input;
 using Kards.NET.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Kards.NET.ViewModels;
 
 public partial class CreateDeckWindowViewModel : ObservableObject
 {
     public Action CloseWindow { get; set; }
+
+    private DeckService _deckService =  App.Services.GetRequiredService<DeckService>();
+
     
-    private readonly DeckService _deckService;
     
     [ObservableProperty]
     private string _deckName =  string.Empty;
@@ -30,12 +32,23 @@ public partial class CreateDeckWindowViewModel : ObservableObject
             var newDeck = new Decks
             {
                 DeckName = DeckName,
-                LastAcess = DateTime.Now
+                LastAcess = DateTime.Now,
+                CreationDate = DateTime.Now,
             };
-            Console.WriteLine("New Deck Created!");
-            await _deckService.AddDeckAsync(newDeck);
-            CloseWindow?.Invoke();
-            Console.WriteLine("Closing......");
+            
+            try
+            {
+                await _deckService.AddDeckAsync(newDeck);
+                Console.WriteLine("Deck successfully saved!");
+                CloseWindow.Invoke();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving deck: " + ex.Message);
+                if (ex.InnerException != null)
+                    Console.WriteLine("Inner exception: " + ex.InnerException.Message);
+            }
+
         }
     }
 }
