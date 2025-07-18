@@ -25,7 +25,7 @@ public class DeckService
     public async Task AddDeckAsync(Decks deck)
     {
         _db.Decks.Add(deck);
-        await _db.SaveChangesAsync();
+        await _db.SaveChangesAsync().ConfigureAwait(false);
     }
     
     public async Task UpdateDeckAsync(Decks deck)
