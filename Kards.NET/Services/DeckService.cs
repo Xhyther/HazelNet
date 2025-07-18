@@ -24,8 +24,18 @@ public class DeckService
 
     public async Task AddDeckAsync(Decks deck)
     {
-        _db.Decks.Add(deck);
-        await _db.SaveChangesAsync();
+        try
+        {
+            _db.Decks.Add(deck);
+            var changes = await _db.SaveChangesAsync();
+            Console.WriteLine($"Saved successfully. {changes} records affected.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Save error: {ex.ToString()}");
+            throw;
+        }
+       
     }
     
     public async Task UpdateDeckAsync(Decks deck)
