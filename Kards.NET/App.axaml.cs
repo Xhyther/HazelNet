@@ -1,9 +1,11 @@
 using System;
+using System.IO;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
+using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Kards.NET.DBContext;
 using Kards.NET.Services;
@@ -28,7 +30,8 @@ public partial class App : Application
         var serviceCollection = new ServiceCollection();
         
         serviceCollection.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlite("Data Source=Kards.db"));
+            options.UseSqlite($"Data Source= Kards.db"));
+
         
         serviceCollection.AddScoped<DeckService>();
         //Add here card Service
@@ -47,6 +50,13 @@ public partial class App : Application
         
         Services =  serviceCollection.BuildServiceProvider();
         
+        using (var scope = Services.CreateScope())
+        {
+            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            dbContext.Database.EnsureCreated();
+        }
+        
+        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
@@ -58,6 +68,8 @@ public partial class App : Application
             {
                 DataContext = mainVM
             };;
+
+            
         }
 
         base.OnFrameworkInitializationCompleted();
