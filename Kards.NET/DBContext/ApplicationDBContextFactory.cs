@@ -10,7 +10,7 @@ public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<Applicati
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
         // IMPORTANT: Use the same connection string your app uses
-        optionsBuilder.UseSqlite("Data Source=kards.db");
+        optionsBuilder.UseSqlite("Data Source=Kards.db");
 
         return new ApplicationDbContext(optionsBuilder.Options);
     }
