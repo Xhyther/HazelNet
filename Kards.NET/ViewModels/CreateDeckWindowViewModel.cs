@@ -38,6 +38,7 @@ public partial class CreateDeckWindowViewModel : ObservableObject
             
             try
             {
+                Console.WriteLine($"Attempting to save deck: {newDeck.DeckName}, {newDeck.CreationDate}");
                 await _deckService.AddDeckAsync(newDeck);
                 Console.WriteLine("Deck successfully saved!");
                 CloseWindow.Invoke();
