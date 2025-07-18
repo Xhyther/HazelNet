@@ -10,7 +10,9 @@ public partial class CreateDeckWindow : Window
     public CreateDeckWindow()
     {
         InitializeComponent();
-        DataContext = App.Services.GetRequiredService<CreateDeckWindowViewModel>();
+        var vm = App.Services.GetRequiredService<CreateDeckWindowViewModel>();
+        vm.CloseWindow = Close;
+        DataContext = vm;
     }
 
     private void CancelDeckCreation(object? sender, RoutedEventArgs e)
