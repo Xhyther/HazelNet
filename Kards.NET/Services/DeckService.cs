@@ -5,20 +5,25 @@ using System.Linq;
 using Kards.NET.DBContext;
 using Kards.NET.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Kards.NET.Services;
 
 public class DeckService
 {
     private readonly ApplicationDbContext _db;
-
     public DeckService(ApplicationDbContext db)
     {
         _db = db;
     }
     
     //Get all Decks
-    public async Task<List<Decks>> GetAllDecks() => await _db.Decks.ToListAsync();
+    public async Task<List<Decks>> GetAllDecksAsync()
+    {
+ 
+        return await _db.Decks.AsNoTracking().ToListAsync();
+      
+    } 
     //Get a Deck by Id
     public async Task<Decks?> GetDeckByName(int id) => await _db.Decks.FindAsync(id);
 
