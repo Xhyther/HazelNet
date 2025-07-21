@@ -12,7 +12,7 @@ public partial class CreateDeckWindowViewModel : ObservableObject
 {
     public Action CloseWindow { get; set; }
 
-    private DeckService _deckService =  App.Services.GetRequiredService<DeckService>();
+    private DeckService _deckService;
 
     
     
