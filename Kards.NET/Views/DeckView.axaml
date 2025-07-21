@@ -13,7 +13,10 @@
     
     <Grid RowDefinitions="Auto,*">
         <Grid Grid.Row="0" ColumnDefinitions="*, Auto">
-            <Button Command="{Binding CreateNewDeckCommand}" Grid.Column="1" Background="#0C1B33" Margin="20 ,0">
+            <Button Command="{Binding CreateNewDeckCommand}" 
+                    Grid.Column="1" Background="#0C1B33" 
+                    Margin="20 ,0">
+               
                 <Grid ColumnDefinitions="Auto, Auto" VerticalAlignment="Center">
                     <Image Grid.Column="0" Source="../Assets/Image/plus.png" Width="13" Height="13"  Margin="5,0"> </Image>
                     <TextBlock Grid.Column="1" FontWeight="Medium"
