@@ -34,10 +34,14 @@
                 <Rectangle Grid.Column="2" Width="30" Height="30" Fill="Black" Margin="10,0"/>
                 
             </Grid>
-            <ItemsControl Grid.Row="1">
-                
-            </ItemsControl>
+           
+            <ScrollViewer Grid.Row="1" AllowAutoHide="True">
+                <WrapPanel  Orientation="Horizontal" Background="Gold">
+                    
+                </WrapPanel>
+            </ScrollViewer>
         </Grid>
+        
     </Grid>
     
    
