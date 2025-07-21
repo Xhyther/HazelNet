@@ -39,7 +39,7 @@ public partial class MainWindowViewModel : ViewModelBase
    [RelayCommand]
    public void DashboardView()
    {
-        CurrentPage = App.Services.GetRequiredService<DashboardViewModel>();
+      CurrentPage = _dashboardViewModel;
         PageTitle = "Dashboard";
         
    }
@@ -47,7 +47,7 @@ public partial class MainWindowViewModel : ViewModelBase
    [RelayCommand]
    public void DeckView()
    {
-      CurrentPage = App.Services.GetRequiredService<DeckViewModel>();
+      CurrentPage = _deckViewModel;
       PageTitle = "My Decks";
       
    }
@@ -55,14 +55,14 @@ public partial class MainWindowViewModel : ViewModelBase
    [RelayCommand]
    public void StudyView()
    {
-      CurrentPage = App.Services.GetRequiredService<StudyViewModel>();
+      CurrentPage = _studyViewModel;
       PageTitle = "Study";
    }
    
    [RelayCommand]
    public void StatsView()
    {
-      CurrentPage =  App.Services.GetRequiredService<StatsViewModel>();
+      CurrentPage = _statsViewModel;
       PageTitle = "Statistics";
    }
 }
