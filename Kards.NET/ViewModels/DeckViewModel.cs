@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
 using Kards.NET.Models;
 using Kards.NET.Services;
@@ -9,25 +10,30 @@ namespace Kards.NET.ViewModels;
 
 public partial class DeckViewModel : ViewModelBase
 {
-   private readonly DeckService _deckService;
 
+   private readonly DeckService _deckService;
+   
    public ObservableCollection<Decks> Decks { get; set; } = new();
+   
 
    //Overload Constructor for testing
    
-   
+
    public DeckViewModel(DeckService deckService)
    {
       //Dependency Injection
       _deckService = deckService;
+      LoadAllDecks();
    }
 
-   public async void LoadAAllDecks()
+   public async Task LoadAllDecks()
    {
-      var decks = await _deckService.GetAllDecks();
+      var decks = new ObservableCollection<Decks>(await _deckService.GetAllDecksAsync());
+      Decks.Clear();
       foreach (var deck in decks)
-         Decks.Add(deck);
+         Decks.Add(deck); // No manual OnPropertyChanged needed
    }
+   
 
    [RelayCommand]
    public void CreateNewDeckCommand()
