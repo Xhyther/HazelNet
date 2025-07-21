@@ -12,12 +12,7 @@ public class ApplicationDbContext : DbContext
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options) {}
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        var dbPath = Path.GetFullPath("Kards.db");
-        Console.WriteLine($"Database location: {dbPath}");
-        optionsBuilder.UseSqlite($"Data Source={dbPath}");
-    }
+ 
     
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
