@@ -7,16 +7,21 @@ namespace Kards.NET.Views;
 
 public partial class CreateDeckWindow : Window
 {
-    public CreateDeckWindow()
+    CreateDeckWindowViewModel _viewModel;
+    public CreateDeckWindow(CreateDeckWindowViewModel ViewModel)
     {
         InitializeComponent();
-        var vm = App.Services.GetRequiredService<CreateDeckWindowViewModel>();
-        vm.CloseWindow = Close;
-        DataContext = vm;
+        _viewModel = ViewModel;
+        _viewModel.CloseWindow = Close;
+        DataContext = _viewModel;
     }
+
+   
 
     private void CancelDeckCreation(object? sender, RoutedEventArgs e)
     {
         this.Close();
     }
+    
+   
 }
