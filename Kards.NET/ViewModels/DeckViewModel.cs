@@ -13,16 +13,17 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
 {
 
    private readonly DeckService _deckService;
-   
+   private readonly CreateDeckWindowViewModel _createDeckWindowViewModel;
    public ObservableCollection<Decks> Decks { get; set; } = new ObservableCollection<Decks>();
 
    //Overload Constructor for testing
    
 
-   public DeckViewModel(DeckService deckService)
+   public DeckViewModel(DeckService deckService, CreateDeckWindowViewModel  createDeckWindowViewModel)
    {
       //Dependency Injection
       _deckService = deckService;
+      _createDeckWindowViewModel = createDeckWindowViewModel;
       LoadAllDecks();
    }
 
@@ -37,7 +38,7 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
    [RelayCommand]
    public void CreateNewDeckCommand()
    {
-      var window = new CreateDeckWindow();
+      var window = new CreateDeckWindow(_createDeckWindowViewModel);
       window.Closed += async (s, e) => await LoadAllDecks();
       window.Show();
    }
