@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
@@ -42,5 +43,20 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
       window.Closed += async (s, e) => await LoadAllDecks();
       window.Show();
    }
+
+   [RelayCommand]
+   public void EditDeckCommand()
+   {
+      try
+      {
+         Console.WriteLine("Editing deck....");
+      }
+      catch (Exception e)
+      {
+         Console.WriteLine(e);
+         throw;
+      }
+   }
+   
    
 }
