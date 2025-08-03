@@ -36,7 +36,7 @@
             </Grid>
            
            <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ItemsRepeater ItemsSource="{Binding Decks}">
+                <ItemsRepeater ItemsSource="{Binding  Decks}">
                     <ItemsRepeater.Layout>
                         <UniformGridLayout 
                             Orientation="Horizontal"
@@ -73,7 +73,7 @@
                                         
                                     <!-- Card Count -->
                                     <TextBlock
-                                        Text="{Binding NumberOfCards, StringFormat='{}Cards: {0}'}"
+                                        Text="{Binding NumberOfCards}"
                                         FontSize="14"
                                         Foreground="{StaticResource SecondaryTextBrush}"
                                         Margin="0,4,0,0"
@@ -81,7 +81,7 @@
                                         
                                     <!-- Last Accessed -->
                                     <TextBlock
-                                        Text="{Binding LastAcess, StringFormat='{}Last studied: {0:MMM dd, yyyy}'}"
+                                        Text="{Binding LastAccess, StringFormat='{}Last studied: {0:MMM dd, yyyy}'}"
                                         FontSize="12"
                                         Foreground="{StaticResource TertiaryTextBrush}"
                                         Margin="0,4,0,0"
@@ -96,11 +96,12 @@
                                         Margin="0,16,0,0"
                                         Grid.Row="4">
                                         
-                                        <Button 
-                                            Content="Study" 
-                                            CommandParameter="{Binding}"/>
-                                            
-                                        <Button Content="Edit"/>
+                                        <Button Content="Study"
+                                                Command="{Binding Parent.StudyDeckCommand}"
+                                                CommandParameter="{Binding Decks}"/>
+                                        <Button Content="Edit"
+                                                Command="{Binding Parent.EditDeckCommand}"
+                                                CommandParameter="{Binding Decks}"/>
                                     </StackPanel>
                                 </Grid>
                             </Border>
