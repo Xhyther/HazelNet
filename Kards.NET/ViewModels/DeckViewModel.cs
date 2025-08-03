@@ -15,7 +15,7 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
 
    private readonly DeckService _deckService;
    private readonly CreateDeckWindowViewModel _createDeckWindowViewModel;
-   public ObservableCollection<Decks> Decks { get; set; } = new ObservableCollection<Decks>();
+   public ObservableCollection<DeckItemViewModel> Decks { get; set; } = new ObservableCollection<DeckItemViewModel>();
 
    //Overload Constructor for testing
    
@@ -32,7 +32,7 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
    {
       Decks.Clear();
       foreach (var deck in await _deckService.GetAllDecksAsync())
-         Decks.Add(deck); // No manual OnPropertyChanged needed
+         Decks.Add(new DeckItemViewModel(deck, this)); // No manual OnPropertyChanged needed
    }
    
 
@@ -45,11 +45,14 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
    }
 
    [RelayCommand]
-   public void EditDeckCommand()
+   public void EditDeck(Decks? deck)
    {
+      if (deck == null) return;
+        
       try
       {
-         Console.WriteLine("Editing deck....");
+         Console.WriteLine($"Editing deck: {deck.DeckName} (ID: {deck.Id})");
+         // Add your edit logic here
       }
       catch (Exception e)
       {
@@ -57,6 +60,25 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
          throw;
       }
    }
+    
+   [RelayCommand]
+   public void StudyDeck(Decks? deck)
+   {
+      if (deck == null) return;
+        
+      try
+      {
+         Console.WriteLine($"Studying deck: {deck.DeckName} (ID: {deck.Id})");
+         // Add your study logic here
+      }
+      catch (Exception e)
+      {
+         Console.WriteLine(e);
+         throw;
+      }
+   }
+   
+   
    
    
 }
