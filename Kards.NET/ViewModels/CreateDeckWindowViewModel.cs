@@ -13,7 +13,7 @@ public partial class CreateDeckWindowViewModel : ObservableObject
     public Action CloseWindow { get; set; }
 
     private DeckService _deckService;
-
+    
     
     
     [ObservableProperty]
@@ -22,6 +22,7 @@ public partial class CreateDeckWindowViewModel : ObservableObject
     public CreateDeckWindowViewModel(DeckService deckService)
     {
         _deckService = deckService;
+        InitDeckName();
     }
 
     [RelayCommand]
@@ -52,4 +53,6 @@ public partial class CreateDeckWindowViewModel : ObservableObject
 
         }
     }
+
+    public void InitDeckName() => _deckName = "Enter Deck Name......";
 }
