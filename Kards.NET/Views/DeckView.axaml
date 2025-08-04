@@ -98,10 +98,10 @@
                                         
                                         <Button Content="Study"
                                                 Command="{Binding Parent.StudyDeckCommand}"
-                                                CommandParameter="{Binding Decks}"/>
+                                                CommandParameter="{Binding Deck}"/>
                                         <Button Content="Edit"
                                                 Command="{Binding Parent.EditDeckCommand}"
-                                                CommandParameter="{Binding Decks}"/>
+                                                CommandParameter="{Binding Deck}"/>
                                     </StackPanel>
                                 </Grid>
                             </Border>
