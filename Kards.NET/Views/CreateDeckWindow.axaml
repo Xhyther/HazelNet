@@ -14,7 +14,7 @@
         <Border BorderBrush="Black" CornerRadius="15" VerticalAlignment="Center" Padding="20">
                 <StackPanel Orientation="Vertical"  Margin="20,0">
                         <TextBlock Margin="0 5" FontWeight="Bold">Deck Name:</TextBlock>
-                        <TextBox Watermark="Enter Name of Deck here..." Text="{Binding DeckName}"/>
+                        <TextBox Watermark="{Binding DeckName}"/>
                         <Grid ColumnDefinitions="*, Auto, Auto" Margin="0,20">
                                 <!--Rectangle as Placeholder for Ok and Cancel -->
                
