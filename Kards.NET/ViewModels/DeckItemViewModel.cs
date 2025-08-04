@@ -4,17 +4,17 @@ namespace Kards.NET.ViewModels;
 
 public class DeckItemViewModel
 {
-    public Decks Decks { get; }
+    public Decks Deck { get; }
     public DeckViewModel Parent { get; }
 
     public DeckItemViewModel(Decks decks, DeckViewModel parent)
     {
-        Decks = decks;
+        Deck = decks;
         Parent = parent;
     }
     
     
-    public string DeckName => Decks.DeckName;
-    public string NumberOfCards => "Cards: " + Decks.NumberOfCards.ToString();
-    public string LastAccess => "Last Studied: " + Decks.LastAcess.ToString();
+    public string DeckName => Deck.DeckName;
+    public string NumberOfCards => "Cards: " + Deck.NumberOfCards.ToString();
+    public string LastAccess => "Last Studied: " + Deck.LastAcess.ToString();
 }
