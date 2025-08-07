@@ -7,70 +7,95 @@
         WindowState="Maximized"
         x:Class="Kards.NET.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/Image/avalonia-logo.ico"
-        Title="Kards.NET"
+        Icon="/Assets/Image/HazelNetLogo.png"
+        Title="HazelNET"
         Background="#DDE0E4">
         
     <SplitView IsPaneOpen="True"
                DisplayMode="Inline"
-               OpenPaneLength="200">
+               OpenPaneLength="250">
             
             <SplitView.Pane>
                 
-                <Border Background="#fffefe">
+                <Border Background="#ffffff" BorderThickness="0,0,2,0" BorderBrush="#e2e8f0">
                     <StackPanel Orientation="Vertical" Margin="10">
-                    <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center" Margin="0,0,0,20" >
-                       
-                        <Image Grid.Column="0" Height="25" Width="25"
-                               Source="../Assets/Image/avalonia-logo.ico"></Image>
-                        <Label Grid.Column="1" 
-                               FontWeight="DemiBold"
-                               FontFamily="{StaticResource LexendDeca}"
-                               FontSize="20"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center">Kards.Net</Label>
-                    </Grid>
-                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
-                        <Button Command="{Binding DashboardViewCommand}" Height="40" Width="180" Background="Transparent" >
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="../Assets/Image/home.png" Width="15" Height="15"  Margin="5,0"> </Image>
-                                <TextBlock FontWeight="Medium"
-                                           FontSize="17"
-                                           FontFamily="{StaticResource LexendDeca}">
-                                    Dashboard
-                                </TextBlock>
-                            </StackPanel>
-                        </Button>    
-                        <Button Command="{Binding DeckViewCommand}" Height="40" Width="180" Background="Transparent" >
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="../Assets/Image/folder.png" Width="15" Height="15"  Margin="5,0"> </Image>
-                                <TextBlock FontWeight="Medium"
-                                           FontSize="17"
-                                           FontFamily="{StaticResource LexendDeca}">Card Decks
-                                </TextBlock>
-                            </StackPanel>
-                        </Button>
-                        <Button Command="{Binding StudyViewCommand}" Height="40" Width="180" Background="Transparent" >
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="../Assets/Image/study.png" Width="15" Height="15"  Margin="5,0"> </Image>
-                                <TextBlock FontWeight="Medium"
-                                           FontSize="17"
-                                           FontFamily="{StaticResource LexendDeca}">Study
-                                </TextBlock>
-                            </StackPanel>
-                        </Button>
-                        <Button Command="{Binding StatsViewCommand}" Height="40" Width="180" Background="Transparent" >
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <Image Source="../Assets/Image/statistics.png" Width="15" Height="15"  Margin="5,0"> </Image>
-                                <TextBlock FontWeight="Medium"
-                                           FontSize="17"
-                                           FontFamily="{StaticResource LexendDeca}">Statistics
-                                </TextBlock>
-                            </StackPanel>
-                        </Button>
-                        
-                        
-                    </StackPanel>
+                        <Grid ColumnDefinitions="Auto,*" 
+                              VerticalAlignment="Center"
+                              Margin="20,20" >
+                           
+                            <Image Grid.Column="0" Height="40" Width="40"
+                                   Source="../Assets/Image/HazelNetLogo.png"></Image>
+                            <Label Grid.Column="1" 
+                                   FontWeight="Solid"
+                                   FontFamily="Roboto"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center">HazelNet</Label>
+                        </Grid>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+                            
+                            <Button Command="{Binding DashboardViewCommand}" 
+                                    Height="50" Width="210" 
+                                    Background="Transparent"
+                                    Margin="0,3">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="../Assets/Image/dashboard.png" Width="25" Height="25"  Margin="5,0"> </Image>
+                                    <TextBlock FontWeight="SemiBold"
+                                               FontSize="16"
+                                               FontFamily = "Roboto"
+                                               Margin="20,0">
+                                        Dashboard
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Command="{Binding DeckViewCommand}" 
+                                    Height="50" Width="210" 
+                                    Background="Transparent"
+                                    Margin="0,3">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="../Assets/Image/decks.png" Width="25" Height="25"  Margin="5,0"> </Image>
+                                    <TextBlock FontWeight="SemiBold"
+                                               FontSize="16"
+                                               FontFamily = "Roboto"
+                                               Margin="20,0">
+                                        Card Decks
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Command="{Binding StudyViewCommand}" 
+                                    Height="50" Width="210" 
+                                    Background="Transparent" 
+                                    Margin="0,3">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="../Assets/Image/study.png" Width="25" Height="25"  Margin="5,0"> </Image>
+                                    <TextBlock FontWeight="SemiBold"
+                                               FontSize="16"
+                                               FontFamily = "Roboto"
+                                               Margin="20,0">
+                                        Study
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Command="{Binding StatsViewCommand}"
+                                    Height="50" Width="210" 
+                                    Background="Transparent" 
+                                    Margin="0,3">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="../Assets/Image/bars-graph.png" Width="25" Height="25"  Margin="5,0"> </Image>
+                                    <TextBlock FontWeight="SemiBold"
+                                               FontSize="16"
+                                               FontFamily = "Roboto"
+                                               Margin="20,0">
+                                        Statistics
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            
+                        </StackPanel>
                     
                 </StackPanel>
                 </Border>
@@ -79,22 +104,30 @@
             
             <SplitView.Content>
                 
-                <Border Background="#f1f4f8">
+                <Border Background="#f8fafc">
                     <Grid RowDefinitions="Auto, *">
                         <Border Grid.Row="0" Padding="10" 
-                                Background="#fffefe" 
+                                Height="65"
+                                Background="#ffffff"
                                 Margin="0,0,0,20"
-                                BoxShadow="0 -5 10 2 #30323D">
-                            <Grid ColumnDefinitions="Auto, 2*, *, Auto, Auto" Opacity="75"  >
-                                <TextBlock Grid.Column="0" VerticalAlignment="Center"
+                                BorderThickness="0,0,0,2" 
+                                BorderBrush="#e2e8f0"
+                                VerticalAlignment="Center">
+                            <Grid ColumnDefinitions="Auto, 2*, *, Auto, Auto" 
+                                  VerticalAlignment="Center">
+                                <TextBlock Grid.Column="0" VerticalAlignment="Bottom"
                                            HorizontalAlignment="Left"
                                            TextAlignment="Center"
-                                           FontFamily="Jettbrains Mono"
-                                           FontSize="18"
+                                           FontFamily="Roboto"
+                                           FontSize="24"
                                            FontWeight="Bold"
                                            Text="{Binding PageTitle}"
                                            TextWrapping="Wrap" />
-                                <TextBox Grid.Column="2" Watermark="Search cards.." CornerRadius="5" Margin="5,0"></TextBox>
+                                <TextBox Grid.Column="2" Watermark="Search cards.." 
+                                         CornerRadius="10" 
+                                         Margin="5,0"
+                                         Height="30"
+                                         VerticalContentAlignment="Center"/>
                                 <Rectangle Grid.Column="3" Height="30" Width="30" Fill="DarkGreen" Margin="5,0"></Rectangle>
                                 <Rectangle Grid.Column="4" Height="30" Width="30" Fill="DeepSkyBlue" Margin="5,0"></Rectangle>
                             </Grid>
