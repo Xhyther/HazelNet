@@ -48,7 +48,7 @@ public partial class MainWindowViewModel : ViewModelBase
    public void DeckView()
    {
       CurrentPage = _deckViewModel;
-      PageTitle = "My Decks";
+      PageTitle = "Card Decks";
       
    }
    
