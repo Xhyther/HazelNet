@@ -7,35 +7,44 @@
              x:Class="Kards.NET.Views.DeckView"
              x:DataType="viewModels:DeckViewModel">
     
-    <Design.DataContext>
-        <viewModels:DeckViewModel/>
-    </Design.DataContext>
+   
     
     <Grid RowDefinitions="Auto,*">
-        <Grid Grid.Row="0" ColumnDefinitions="*, Auto">
+        <Grid Grid.Row="0" ColumnDefinitions=" *, Auto, Auto, Auto">
+           
             <Button Command="{Binding CreateNewDeckCommand}" 
-                    Grid.Column="1" Background="#0C1B33" 
-                    Margin="20 ,0">
+                    Grid.Column="1" 
+                    Background="#10b981" 
+                    CornerRadius="10"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Height="40"
+                    Width="150"
+                    Margin="20,0">
                
                 <Grid ColumnDefinitions="Auto, Auto" VerticalAlignment="Center">
-                    <Image Grid.Column="0" Source="../Assets/Image/plus.png" Width="13" Height="13"  Margin="5,0"> </Image>
-                    <TextBlock Grid.Column="1" FontWeight="Medium"
-                               FontSize="15"
-                               Foreground="#FAFAFA"
-                               FontFamily="{StaticResource LexendDeca}">Create Deck
+                    <Image Grid.Column="0" Source="../Assets/Image/plus.png" 
+                           Width="10" 
+                           Height="10"
+                           Stretch="Uniform"
+                           Margin="5,5"/>
+                    <TextBlock Grid.Column="1" 
+                               FontWeight="SemiBold"
+                               FontSize="13"
+                               Foreground="#f1f5f9"
+                               FontFamily="Roboto">
+                        Create Deck
                     </TextBlock>
                 </Grid>
             </Button>
             
+            <!-- Add Some sort of Filter and/ or Sort Buttons -->
+            
         </Grid>
-        <Grid Grid.Row="1" RowDefinitions="Auto, *" Margin="20, 10">
-            <Grid Grid.Row="0" ColumnDefinitions="*,Auto,Auto" >
-                <Rectangle Grid.Column="1" Width="30" Height="30" Fill="Black" Margin="10,0"/>
-                <Rectangle Grid.Column="2" Width="30" Height="30" Fill="Black" Margin="10,0"/>
-                
-            </Grid>
+        <Grid Grid.Row="1" RowDefinitions="*" Margin="20, 10">
            
-           <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+           <ScrollViewer Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <ItemsRepeater ItemsSource="{Binding  Decks}">
                     <ItemsRepeater.Layout>
                         <UniformGridLayout 
