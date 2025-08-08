@@ -40,50 +40,59 @@
                     <ItemsRepeater.Layout>
                         <UniformGridLayout 
                             Orientation="Horizontal"
-                            MinItemWidth="300"
-                            MinRowSpacing="16"
-                            MinColumnSpacing="16"/>
+                            MinItemWidth="400"
+                            MinItemHeight="175"
+                            MinRowSpacing="15"
+                            MinColumnSpacing="15"/>
                     </ItemsRepeater.Layout>
                     
                     <ItemsRepeater.ItemTemplate>
                         <DataTemplate>
                             <Border
-                                Background="{StaticResource DeckCardBackground}"
+                                Background= "#ffffff"
                                 CornerRadius="12"
-                                Padding="16"
+                                Padding="15"
                                 Margin="8"
                                 BoxShadow="0 4 8 0 #22000000">
                                 
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    
-                                    <!-- Deck Name -->
-                                    <TextBlock 
-                                        Text="{Binding DeckName}" 
-                                        FontSize="18" 
-                                        FontWeight="SemiBold"
-                                        Foreground="{StaticResource PrimaryTextBrush}"
-                                        Grid.Row="0"/>
+                                <Grid RowDefinitions="Auto,*,Auto Auto">
+                                   
+                                    <Grid Grid.Row = "0" ColumnDefinitions="Auto, *" Margin="0,10">
+                                        <!-- Deck Name -->
+                                        <TextBlock 
+                                            Text="{Binding DeckName}" 
+                                            FontSize="18" 
+                                            FontWeight="Bold"
+                                            Foreground="#1e293b"
+                                            Grid.Column="0"/>
                                         
-                                    <!-- Card Count -->
-                                    <TextBlock
-                                        Text="{Binding NumberOfCards}"
-                                        FontSize="14"
-                                        Foreground="{StaticResource SecondaryTextBrush}"
-                                        Margin="0,4,0,0"
-                                        Grid.Row="1"/>
+                                        <!-- Card Count -->
+                                        <Border Grid.Column="1" Background="#dbeafe"
+                                                HorizontalAlignment="Right"
+                                                Margin="10,0"
+                                                CornerRadius="60"
+                                                Width="70"
+                                                Height="25">
+                                            <TextBlock
+                                                Text="{Binding NumberOfCards}"
+                                                FontSize="12"
+                                                FontWeight="SemiBold"
+                                                Foreground="#1e40af"
+                                                Margin="0,4,0,0"
+                                                TextAlignment="Center"/>
+                                        </Border>
+                                        
+                                    </Grid>
+                                    
+                                    
+                                   
                                         
                                     <!-- Last Accessed -->
                                     <TextBlock
-                                        Text="{Binding LastAccess, StringFormat='{}Last studied: {0:MMM dd, yyyy}'}"
-                                        FontSize="12"
-                                        Foreground="{StaticResource TertiaryTextBrush}"
+                                        Text="{Binding LastAccess}"
+                                        FontSize="13"
+                                        FontWeight="Regular"
+                                        Foreground="#64784b"
                                         Margin="0,4,0,0"
                                         Grid.Row="2"/>
                                         
@@ -91,17 +100,36 @@
                                     <!-- Action Buttons -->
                                     <StackPanel 
                                         Orientation="Horizontal" 
-                                        HorizontalAlignment="Right"
+                                        HorizontalAlignment="Left"
                                         Spacing="8"
                                         Margin="0,16,0,0"
-                                        Grid.Row="4">
+                                        Grid.Row="3">
                                         
                                         <Button Content="Study"
                                                 Command="{Binding Parent.StudyDeckCommand}"
-                                                CommandParameter="{Binding Deck}"/>
+                                                CommandParameter="{Binding Deck}"
+                                                Margin="0,10"
+                                                Background="#1e40af"
+                                                FontSize="13"
+                                                FontWeight="Medium"
+                                                Foreground="#f1f5f9"
+                                                CornerRadius="5"
+                                                Height="35"
+                                                Width="60"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"/>
                                         <Button Content="Edit"
                                                 Command="{Binding Parent.EditDeckCommand}"
-                                                CommandParameter="{Binding Deck}"/>
+                                                CommandParameter="{Binding Deck}"
+                                                Background="#f1f5f9"
+                                                FontSize="13"
+                                                FontWeight="Medium"
+                                                Foreground="#64748b"
+                                                CornerRadius="5"
+                                                Height="35"
+                                                Width="60"
+                                                HorizontalContentAlignment="Center"
+                                                VerticalContentAlignment="Center"/>
                                     </StackPanel>
                                 </Grid>
                             </Border>
