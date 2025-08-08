@@ -126,10 +126,21 @@
                                 <TextBox Grid.Column="2" Watermark="Search cards.." 
                                          CornerRadius="10" 
                                          Margin="5,0"
-                                         Height="30"
+                                         Height="25"
                                          VerticalContentAlignment="Center"/>
-                                <Rectangle Grid.Column="3" Height="30" Width="30" Fill="DarkGreen" Margin="5,0"></Rectangle>
-                                <Rectangle Grid.Column="4" Height="30" Width="30" Fill="DeepSkyBlue" Margin="5,0"></Rectangle>
+                                <Button Grid.Column="3" Background="Transparent">
+                                    <Image Source="../Assets/Image/notification-bell.png"
+                                           Height="22"
+                                           Width="22"
+                                           Stretch="Uniform"/>
+                                </Button>
+                                
+                                <Button Grid.Column="4" Background="Transparent" >
+                                    <Image Source="../Assets/Image/settings.png"
+                                           Height="25"
+                                           Width="25"
+                                           Stretch="Uniform"/>
+                                </Button>
                             </Grid>
                         </Border>
                     
