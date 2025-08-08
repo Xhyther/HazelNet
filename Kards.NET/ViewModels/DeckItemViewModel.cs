@@ -15,6 +15,6 @@ public class DeckItemViewModel
     
     
     public string DeckName => Deck.DeckName;
-    public string NumberOfCards => "Cards: " + Deck.NumberOfCards.ToString();
+    public string NumberOfCards =>  Deck.NumberOfCards.ToString() + " cards";
     public string LastAccess => "Last Studied: " + Deck.LastAcess.ToString();
 }
