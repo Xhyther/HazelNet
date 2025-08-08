@@ -39,7 +39,13 @@
                 </Grid>
             </Button>
             
-            <!-- Add Some sort of Filter and/ or Sort Buttons -->
+            <!-- 
+            Add Some sort of Filter and/ or Sort Buttons 
+            Grid.Rows ::
+            2 for Filter
+            3 for Sorting 
+            -->
+            
             
         </Grid>
         <Grid Grid.Row="1" RowDefinitions="*" Margin="20, 10">
