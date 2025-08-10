@@ -7,29 +7,40 @@
         x:Class="Kards.NET.Views.CreateDeckWindow"
         x:DataType="viewModels:CreateDeckWindowViewModel"
         Title="Create Deck"
-        TransparencyLevelHint="Transparent"
-        SystemDecorations="None"
+        SystemDecorations="Full"
         WindowStartupLocation="CenterOwner">
     
         <Border BorderBrush="Black" CornerRadius="15" VerticalAlignment="Center" Padding="20">
                 <StackPanel Orientation="Vertical"  Margin="20,0">
                         <TextBlock Margin="0 5" FontWeight="Bold">Deck Name:</TextBlock>
-                        <TextBox Watermark="{Binding DeckName}"/>
+                        <TextBox Watermark="Enter Deck Name..." Text="{Binding DeckName}"/>
                         <Grid ColumnDefinitions="*, Auto, Auto" Margin="0,20">
                                 <!--Rectangle as Placeholder for Ok and Cancel -->
                
-                                <Button Command="{Binding EnterDeckCreation}" Grid.Column="1" Width="70" Height="30"
+                                <Button Command="{Binding EnterDeckCreation}" Grid.Column="1"
                                         Margin="0,0, 5 ,0"
-                                        Background="#2C6E49"
-                                        Foreground="#f1f4f8"
                                         Content="Enter"
-                                        HorizontalContentAlignment="Center"/>
-                                <Button Click= "CancelDeckCreation" Grid.Column="2" Width="70" Height="30" 
+                                        Background="#10b981" 
+                                        FontSize="13"
+                                        FontWeight="Medium"
+                                        Foreground="#f1f5f9"
+                                        CornerRadius="5"
+                                        Height="35"
+                                        Width="60"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"/>
+                                <Button Click= "CancelDeckCreation" Grid.Column="2"
                                         Margin="5,0, 0 ,0"
-                                        Background="#EDAFB8"
-                                        Foreground="#f1f4f8"
                                         Content="Cancel"
-                                        HorizontalContentAlignment="Center"/>
+                                        Background="#f1f5f9"
+                                        FontSize="13"
+                                        FontWeight="Medium"
+                                        Foreground="#64748b"
+                                        CornerRadius="5"
+                                        Height="35"
+                                        Width="60"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"/>
                         </Grid>
                 </StackPanel>
         </Border>
