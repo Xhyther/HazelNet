@@ -22,7 +22,6 @@ public partial class CreateDeckWindowViewModel : ObservableObject
     public CreateDeckWindowViewModel(DeckService deckService)
     {
         _deckService = deckService;
-        InitDeckName();
     }
 
     [RelayCommand]
@@ -53,6 +52,5 @@ public partial class CreateDeckWindowViewModel : ObservableObject
 
         }
     }
-
-    public void InitDeckName() => _deckName = "Enter Deck Name......";
+    
 }
