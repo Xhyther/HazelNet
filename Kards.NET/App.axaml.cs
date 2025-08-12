@@ -43,9 +43,11 @@ public partial class App : Application
         serviceCollection.AddTransient<StatsViewModel>();
         serviceCollection.AddTransient<StudyViewModel>();
         
+        
         serviceCollection.AddTransient<CreateCardWindowViewModel>();
         serviceCollection.AddTransient<CreateDeckWindowViewModel>();
-        
+
+        serviceCollection.AddTransient<EditDeckWIndowViewModel>();
         
         
         serviceCollection.AddTransient<MainWindowViewModel>(); // final shell
@@ -65,13 +67,9 @@ public partial class App : Application
             // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
             DisableAvaloniaDataAnnotationValidation();
             var mainVM = Services.GetRequiredService<MainWindowViewModel>();
+            desktop.MainWindow = new MainWindow(mainVM);
 
-            desktop.MainWindow = new MainWindow
-            {
-                DataContext = mainVM
-            };;
 
-            
         }
 
         base.OnFrameworkInitializationCompleted();
