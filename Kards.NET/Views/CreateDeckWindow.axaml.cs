@@ -16,15 +16,6 @@ public partial class CreateDeckWindow : Window
         DataContext = _viewModel;
     }
     
-    public CreateDeckWindow(CreateDeckWindowViewModel viewModel, Decks deck)
-    {
-        InitializeComponent();
-        _viewModel = viewModel;
-        _viewModel.DeckName = deck.DeckName;
-        _viewModel.CloseWindow = Close;
-        DataContext = _viewModel;
-    }
-
    
 
     private void CancelDeckCreation(object? sender, RoutedEventArgs e)
