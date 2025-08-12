@@ -6,9 +6,13 @@ namespace Kards.NET.Views;
 
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    MainWindowViewModel _viewModel;
+    public MainWindow(MainWindowViewModel viewModel)
     {
         InitializeComponent();
-        DataContext = App.Services.GetRequiredService<MainWindowViewModel>();
+        _viewModel = viewModel;
+        DataContext = _viewModel;
     }
+
+ 
 }

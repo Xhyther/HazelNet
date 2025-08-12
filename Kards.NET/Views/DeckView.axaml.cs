@@ -8,9 +8,19 @@ namespace Kards.NET.Views;
 
 public partial class DeckView : UserControl
 {
+    DeckViewModel _viewModel;
+    
     public DeckView()
     {
         InitializeComponent();
-        DataContext = App.Services.GetRequiredService<DeckViewModel>();
+        
     }
+    
+    public DeckView(DeckViewModel viewModel)
+    {
+        InitializeComponent();
+        _viewModel = viewModel;
+        DataContext = _viewModel;
+    }
+    
 }
