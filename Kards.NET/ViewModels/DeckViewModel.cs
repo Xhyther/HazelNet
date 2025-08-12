@@ -52,9 +52,6 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
       try
       {
          Console.WriteLine($"Editing deck: {deck.DeckName} (ID: {deck.Id})");
-         var window = new CreateDeckWindow(_createDeckWindowViewModel,deck);
-         window.Closed += async (s, e) => await LoadAllDecks();
-         window.Show();
       }
       catch (Exception e)
       {
