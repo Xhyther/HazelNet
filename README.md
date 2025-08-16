@@ -17,7 +17,7 @@ A modern flashcard and study application built with .NET and AvaloniaUI for effi
 
 ## Screenshots
 
-![Kards.NET Dashboard](path/to/screenshot.png)
+![Kards.NET Dashboard]("Screenshot 2025-08-16 200018.png")
 *Main dashboard showing deck overview and study progress*
 
 ## Project Structure
