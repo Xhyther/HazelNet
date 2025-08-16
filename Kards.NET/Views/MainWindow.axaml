@@ -10,6 +10,7 @@
         Icon="/Assets/Image/HazelNetLogo.png"
         Title="HazelNET"
         Background="#DDE0E4">
+   
         
     <SplitView IsPaneOpen="True"
                DisplayMode="Inline"
@@ -157,17 +158,4 @@
 
 </Window>
 
-<!--Color Pallete List
-
-Cherry Blossom Pink:    #EDAFB8
-Dark Spring Green:      #2C6E49
-Sage:                   #A8BA9A
-Prussian Blue:          #1C3144
-Jet:                    #30323D
-
-
-White Colors 
-Pane & Header = fffefe
-Content       = f1f4f8
--->
 

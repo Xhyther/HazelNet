@@ -2,10 +2,12 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Kards.NET.Models;
 using Kards.NET.Services;
 using Kards.NET.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 
 namespace Kards.NET.ViewModels;
@@ -15,12 +17,16 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
 
    private readonly DeckService _deckService;
    private readonly CreateDeckWindowViewModel _createDeckWindowViewModel;
+
+   
    public ObservableCollection<DeckItemViewModel> Decks { get; set; } = new ObservableCollection<DeckItemViewModel>();
 
    //Overload Constructor for testing
    
 
-   public DeckViewModel(DeckService deckService, CreateDeckWindowViewModel  createDeckWindowViewModel)
+   public DeckViewModel(DeckService deckService, 
+      CreateDeckWindowViewModel  createDeckWindowViewModel
+      )
    {
       //Dependency Injection
       _deckService = deckService;

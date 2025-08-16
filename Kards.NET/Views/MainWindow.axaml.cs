@@ -7,6 +7,8 @@ namespace Kards.NET.Views;
 public partial class MainWindow : Window
 {
     MainWindowViewModel _viewModel;
+    
+   
     public MainWindow(MainWindowViewModel viewModel)
     {
         InitializeComponent();
