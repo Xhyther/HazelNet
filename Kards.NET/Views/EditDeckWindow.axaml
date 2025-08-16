@@ -5,5 +5,5 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Kards.NET.Views.EditDeckWindow"
         Title="EditDeckWindow">
-    Welcome to Avalonia!
+       This is the Edit Deck Window
 </Window>
