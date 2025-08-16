@@ -122,7 +122,7 @@
                                            FontFamily="Roboto"
                                            FontSize="24"
                                            FontWeight="Bold"
-                                           Text="{Binding PageTitle}"
+                                           Text="{Binding Navigation.PageTitle}"
                                            TextWrapping="Wrap" />
                                 <TextBox Grid.Column="2" Watermark="Search cards.." 
                                          CornerRadius="10" 
@@ -145,7 +145,7 @@
                             </Grid>
                         </Border>
                     
-                        <TransitioningContentControl Grid.Row="1" Content="{Binding CurrentPage}"></TransitioningContentControl>
+                        <TransitioningContentControl Grid.Row="1" Content="{Binding Navigation.CurrentPage}"></TransitioningContentControl>
                     </Grid>
                 </Border>
                 
