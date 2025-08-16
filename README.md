@@ -75,13 +75,4 @@ This application follows the MVVM (Model-View-ViewModel) pattern:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-
-- Built with .NET and AvaloniaUI
-- Uses Entity Framework for data persistence
-- Inspired by popular flashcard applications like Anki and Quizlet
-
-
-
-
 
