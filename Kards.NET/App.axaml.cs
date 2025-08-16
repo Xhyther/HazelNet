@@ -48,8 +48,8 @@ public partial class App : Application
         serviceCollection.AddTransient<CreateDeckWindowViewModel>();
 
         serviceCollection.AddTransient<EditDeckWIndowViewModel>();
-        
-        
+
+        serviceCollection.AddSingleton<INavigationService,NavigationService>();
         serviceCollection.AddTransient<MainWindowViewModel>(); // final shell
         
         Services =  serviceCollection.BuildServiceProvider();
