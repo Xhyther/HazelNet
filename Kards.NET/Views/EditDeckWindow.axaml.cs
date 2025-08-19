@@ -8,6 +8,13 @@ namespace Kards.NET.Views;
 public partial class EditDeckWindow : Window
 {
     EditDeckWIndowViewModel _viewModel;
+
+    public EditDeckWindow()
+    {
+        InitializeComponent();
+        if(Design.IsDesignMode)
+            DataContext = new EditDeckWIndowViewModel();
+    }
     public EditDeckWindow(EditDeckWIndowViewModel viewModel)
     {
         InitializeComponent();
