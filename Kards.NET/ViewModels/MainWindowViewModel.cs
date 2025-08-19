@@ -15,6 +15,10 @@ public partial class MainWindowViewModel : ViewModelBase
    private readonly StatsViewModel _statsViewModel;
    private readonly StudyViewModel _studyViewModel;
 
+   public MainWindowViewModel()
+   {
+      //For design Time.....
+   }
    public MainWindowViewModel(
       INavigationService navigation,
       DashboardViewModel dashboardViewModel,
