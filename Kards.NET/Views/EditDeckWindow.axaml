@@ -1,9 +1,44 @@
 ﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Kards.NET.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
         x:Class="Kards.NET.Views.EditDeckWindow"
+        x:DataType="vm:MainWindowViewModel"
         Title="EditDeckWindow">
-       This is the Edit Deck Window
+        
+        <Design.DataContext>
+                <vm:EditDeckWIndowViewModel/>
+        </Design.DataContext>
+        
+        <Grid RowDefinitions="Auto, *">
+                <!-- 
+                Sub Header with the following:
+                        Back Button
+                        Spacer
+                        Export button (Soon)
+                -->
+                
+                <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto">
+                        
+                </Grid>
+                
+                <!--
+                        Overview of All Cards (Individual, Total, Studied)
+                        Deck Management and Overview
+                                Name & Rename of Deck Function
+                                Deleting of Deck
+                                Adding new Cards
+                                Clearing Cards
+                                
+                 -->
+                
+                <Grid Grid.Row="1" ColumnDefinitions="*,*">
+                        
+                </Grid>
+                
+                
+        </Grid>
+       
 </Window>
