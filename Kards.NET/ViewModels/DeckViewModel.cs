@@ -14,23 +14,28 @@ namespace Kards.NET.ViewModels;
 
 public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
 {
-
+   public INavigationService Navigation { get; }
    private readonly DeckService _deckService;
    private readonly CreateDeckWindowViewModel _createDeckWindowViewModel;
-
+   private readonly EditDeckWindowViewModel _editDeckWindowViewModel;
    
    public ObservableCollection<DeckItemViewModel> Decks { get; set; } = new ObservableCollection<DeckItemViewModel>();
 
    //Overload Constructor for testing
    
 
-   public DeckViewModel(DeckService deckService, 
-      CreateDeckWindowViewModel  createDeckWindowViewModel
+   public DeckViewModel(
+      INavigationService navigation,
+      DeckService deckService, 
+      CreateDeckWindowViewModel  createDeckWindowViewModel,
+      EditDeckWindowViewModel editDeckWindowViewModel
       )
    {
       //Dependency Injection
+      Navigation = navigation;
       _deckService = deckService;
       _createDeckWindowViewModel = createDeckWindowViewModel;
+      _editDeckWindowViewModel = editDeckWindowViewModel;
       LoadAllDecks();
    }
 
@@ -54,10 +59,10 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
    public void EditDeck(Decks? deck)
    {
       if (deck == null) return;
-        
       try
       {
          Console.WriteLine($"Editing deck: {deck.DeckName} (ID: {deck.Id})");
+         Navigation.NavigateTo(_editDeckWindowViewModel, deck.DeckName.ToString());
       }
       catch (Exception e)
       {
