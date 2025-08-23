@@ -1,8 +1,6 @@
-﻿using Kards.NET.Services;
+﻿namespace Kards.NET.ViewModels;
 
-namespace Kards.NET.ViewModels;
-
-public class EditDeckWindowViewModel :  ViewModelBase
+public class EditDeckWindowViewModel : ViewModelBase
 {
-
+    
 }
