@@ -1,8 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using Kards.NET.Services;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace Kards.NET.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
@@ -17,7 +14,8 @@ public partial class MainWindowViewModel : ViewModelBase
 
    public MainWindowViewModel()
    {
-      //For design Time.....
+      // For design time - create a mock navigation service
+      Navigation = new NavigationService();
    }
    public MainWindowViewModel(
       INavigationService navigation,
@@ -57,5 +55,10 @@ public partial class MainWindowViewModel : ViewModelBase
    public void StatsView()
    {
       Navigation.NavigateTo(_statsViewModel, "Stats");
+   }
+
+   public void NavigateToPage(ViewModelBase viewModel, string pageName)
+   {
+      Navigation.NavigateTo(viewModel, pageName);
    }
 }
