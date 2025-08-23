@@ -5,17 +5,17 @@ using Kards.NET.ViewModels;
 
 namespace Kards.NET.Views;
 
-public partial class EditDeckWindow : Window
+public partial class EditDeckWindowView : Window
 {
-    EditDeckWIndowViewModel _viewModel;
+    EditDeckWindowViewModel _viewModel;
 
-    public EditDeckWindow()
+    public EditDeckWindowView()
     {
         InitializeComponent();
         if(Design.IsDesignMode)
-            DataContext = new EditDeckWIndowViewModel();
+            DataContext = new EditDeckWindowViewModel();
     }
-    public EditDeckWindow(EditDeckWIndowViewModel viewModel)
+    public EditDeckWindowView(EditDeckWindowViewModel viewModel)
     {
         InitializeComponent();
         _viewModel = viewModel;
