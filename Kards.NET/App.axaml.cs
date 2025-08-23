@@ -46,8 +46,7 @@ public partial class App : Application
         
         serviceCollection.AddTransient<CreateCardWindowViewModel>();
         serviceCollection.AddTransient<CreateDeckWindowViewModel>();
-
-        serviceCollection.AddTransient<EditDeckWindowViewModel>();
+        
 
         serviceCollection.AddSingleton<INavigationService,NavigationService>();
         serviceCollection.AddTransient<MainWindowViewModel>(); // final shell

@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Kards.NET.Models;
 using Kards.NET.Services;
 using Kards.NET.Views;
-using Microsoft.Extensions.DependencyInjection;
-
 
 namespace Kards.NET.ViewModels;
 
-public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
+public partial class DeckViewModel : ViewModelBase
 {
-   public INavigationService Navigation { get; }
+   public INavigationService Navigation;
    private readonly DeckService _deckService;
    private readonly CreateDeckWindowViewModel _createDeckWindowViewModel;
-   private readonly EditDeckWindowViewModel _editDeckWindowViewModel;
    
    public ObservableCollection<DeckItemViewModel> Decks { get; set; } = new ObservableCollection<DeckItemViewModel>();
 
@@ -27,19 +22,17 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
    public DeckViewModel(
       INavigationService navigation,
       DeckService deckService, 
-      CreateDeckWindowViewModel  createDeckWindowViewModel,
-      EditDeckWindowViewModel editDeckWindowViewModel
+      CreateDeckWindowViewModel  createDeckWindowViewModel
       )
    {
       //Dependency Injection
       Navigation = navigation;
       _deckService = deckService;
       _createDeckWindowViewModel = createDeckWindowViewModel;
-      _editDeckWindowViewModel = editDeckWindowViewModel;
-      LoadAllDecks();
+      _ = Task.Run(LoadAllDecks);
    }
 
-   public async Task LoadAllDecks()
+   private async Task LoadAllDecks()
    {
       Decks.Clear();
       foreach (var deck in await _deckService.GetAllDecksAsync())
@@ -48,7 +41,7 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
    
 
    [RelayCommand]
-   public void CreateNewDeckCommand()
+   private void CreateNewDeckCommand()
    {
       var window = new CreateDeckWindow(_createDeckWindowViewModel);
       window.Closed += async (s, e) => await LoadAllDecks();
@@ -56,13 +49,13 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
    }
 
    [RelayCommand]
-   public void EditDeck(Decks? deck)
+   private void EditDeck(Decks? deck)
    {
       if (deck == null) return;
       try
       {
          Console.WriteLine($"Editing deck: {deck.DeckName} (ID: {deck.Id})");
-         Navigation.NavigateTo(_editDeckWindowViewModel, deck.DeckName.ToString());
+         //Navigation Control Here
       }
       catch (Exception e)
       {
@@ -72,7 +65,7 @@ public partial class DeckViewModel : ViewModelBase, INotifyPropertyChanged
    }
     
    [RelayCommand]
-   public void StudyDeck(Decks? deck)
+   private void StudyDeck(Decks? deck)
    {
       if (deck == null) return;
         
