@@ -10,9 +10,9 @@ namespace Kards.NET.ViewModels;
 
 public partial class DeckViewModel : ViewModelBase
 {
-   public INavigationService Navigation;
    private readonly DeckService _deckService;
    private readonly CreateDeckWindowViewModel _createDeckWindowViewModel;
+   private readonly EditDeckWindowViewModel _editDeckWindowViewModel;
    
    public ObservableCollection<DeckItemViewModel> Decks { get; set; } = new ObservableCollection<DeckItemViewModel>();
 
@@ -20,15 +20,15 @@ public partial class DeckViewModel : ViewModelBase
    
 
    public DeckViewModel(
-      INavigationService navigation,
       DeckService deckService, 
-      CreateDeckWindowViewModel  createDeckWindowViewModel
+      CreateDeckWindowViewModel  createDeckWindowViewModel,
+      EditDeckWindowViewModel editDeckWindowViewModel
       )
    {
       //Dependency Injection
-      Navigation = navigation;
       _deckService = deckService;
       _createDeckWindowViewModel = createDeckWindowViewModel;
+      _editDeckWindowViewModel = editDeckWindowViewModel;
       _ = Task.Run(LoadAllDecks);
    }
 
@@ -41,7 +41,7 @@ public partial class DeckViewModel : ViewModelBase
    
 
    [RelayCommand]
-   private void CreateNewDeckCommand()
+   public void CreateNewDeckCommand()
    {
       var window = new CreateDeckWindow(_createDeckWindowViewModel);
       window.Closed += async (s, e) => await LoadAllDecks();
@@ -55,7 +55,9 @@ public partial class DeckViewModel : ViewModelBase
       try
       {
          Console.WriteLine($"Editing deck: {deck.DeckName} (ID: {deck.Id})");
-         //Navigation Control Here
+         var window = new EditDeckWindow(_editDeckWindowViewModel, deck);
+         window.Closed += async (s, e) => await LoadAllDecks();
+         window.Show();
       }
       catch (Exception e)
       {
@@ -65,7 +67,7 @@ public partial class DeckViewModel : ViewModelBase
    }
     
    [RelayCommand]
-   private void StudyDeck(Decks? deck)
+   public void StudyDeck(Decks? deck)
    {
       if (deck == null) return;
         
