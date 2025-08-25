@@ -45,8 +45,17 @@ public class DeckService
     
     public async Task UpdateDeckAsync(Decks deck)
     {
-        _db.Decks.Update(deck);
-        await _db.SaveChangesAsync();
+        
+        var existingDeck = await _db.Decks.FindAsync(deck.Id);
+
+        if (existingDeck is not null)
+        {
+            // Update only the fields that changed
+            existingDeck.DeckName = deck.DeckName;
+            existingDeck.LastAcess = deck.LastAcess;
+
+            await _db.SaveChangesAsync();
+        }
     }
 
     public async Task DeleteDeckAsync(int id)
