@@ -50,7 +50,7 @@
         </Grid>
         <Grid Grid.Row="1" RowDefinitions="*" Margin="20, 10">
            
-           <ScrollViewer Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+           <ScrollViewer Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <ItemsRepeater ItemsSource="{Binding  Decks}">
                     <ItemsRepeater.Layout>
                         <UniformGridLayout 
