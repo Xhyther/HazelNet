@@ -4,6 +4,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Kards.NET.Models;
 using Kards.NET.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Kards.NET.Views;
 
@@ -18,6 +19,7 @@ public partial class EditDeckWindow : Window
     {
         InitializeComponent();
         viewModel.Decks = deck;
+        viewModel.CloseWindow = Close;
         DataContext = viewModel;
     }
     
