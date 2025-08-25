@@ -47,7 +47,7 @@
                                            FontFamily = "Roboto"
                                            Foreground="#1e293b"
                                            Padding="10,0" 
-                                           Text="{Binding DeckName}"/>
+                                           Text="{Binding Decks.DeckName}"/>
 
 
                         </StackPanel>
@@ -107,11 +107,12 @@
                                                                    Foreground="#1e293b"
                                                                    Text="Deck Name:"/>
                                                         <TextBox Grid.Row="1"
-                                                                 Text="{Binding DeckName}"/>
+                                                                 Text="{Binding Decks.DeckName}"
+                                                                 />
                                                         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,30" 
                                                                     HorizontalAlignment="Right"
                                                                     VerticalAlignment="Center">
-                                                        <Button
+                                                        <Button Command="{Binding RenameDeckButton}"
                                                                 Margin="0,0, 5 ,0"
                                                                 Content="Rename"
                                                                 Background="#10b981" 
@@ -123,7 +124,7 @@
                                                                 Width="70"
                                                                 HorizontalContentAlignment="Center"
                                                                 VerticalContentAlignment="Center"/>
-                                                        <Button
+                                                        <Button Command="{Binding DeleteDeckButton}"
                                                                 Margin="5,0, 0 ,0"
                                                                 Content="Delete"
                                                                 Background="#b91048"
