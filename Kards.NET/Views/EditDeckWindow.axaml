@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Kards.NET.ViewModels"
-        mc:Ignorable="d" Width="1280" Height="720 "
+        mc:Ignorable="d" Width="960" Height="540"
         x:DataType="vm:EditDeckWindowViewModel"
         x:Class="Kards.NET.Views.EditDeckWindow"
         WindowStartupLocation="CenterScreen"
@@ -167,7 +167,8 @@
                                                                 <TextBox MinHeight="150" 
                                                                          AcceptsReturn="True" 
                                                                          Watermark="Enter the question or prompt"
-                                                                         TextWrapping="Wrap"/>
+                                                                         TextWrapping="Wrap"
+                                                                         Text = "{Binding FrontName}"/>
                                                                 
                                                         </StackPanel>
                                                         
@@ -182,7 +183,8 @@
                                                                 <TextBox MinHeight="150" 
                                                                          AcceptsReturn="True"
                                                                          Watermark="Enter the answer or explanation"
-                                                                         TextWrapping="Wrap"/>
+                                                                         TextWrapping="Wrap"
+                                                                         Text = "{Binding BackDescription}"/>
                                                                 
                                                         </StackPanel>
                                                         
@@ -190,7 +192,7 @@
                                                                     HorizontalAlignment="Right"
                                                                     VerticalAlignment="Center"
                                                                     Margin="0,30">
-                                                                <Button
+                                                                <Button Command="{Binding AddCardButton}"
                                                                         Margin="0,0, 5 ,0"
                                                                         Content="Save Card"
                                                                         Background="#10b981" 
