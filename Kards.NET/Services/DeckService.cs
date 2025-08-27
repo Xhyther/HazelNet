@@ -5,7 +5,7 @@ using System.Linq;
 using Kards.NET.DBContext;
 using Kards.NET.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+
 
 namespace Kards.NET.Services;
 
@@ -21,7 +21,9 @@ public class DeckService
     public async Task<List<Decks>> GetAllDecksAsync()
     {
  
-        return await _db.Decks.AsNoTracking().ToListAsync();
+        return await _db.Decks
+            .Include(d => d.Cards) // This is the crucial part
+            .ToListAsync();
       
     } 
     //Get a Deck by Id
@@ -37,7 +39,7 @@ public class DeckService
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Save error: {ex.ToString()}");
+            Console.WriteLine($"Save error: {ex}");
             throw;
         }
        
@@ -69,18 +71,28 @@ public class DeckService
     }
     
     //Implement Card functions
-    public async Task AddCardToDeckAsync(int deckId, Cards card)
+    public async Task AddCardToDeckAsync(Decks deck, Cards card)
     {
-        var decks = await _db.Decks.FindAsync(deckId);
-        if (decks == null)
-            throw new Exception($"Deck with ID {deckId} not found");
-        else
-        {
-            card.DeckId = deckId;
-            _db.Cards.Add(card);
-            await _db.SaveChangesAsync();
-        }
+        var existingDeck = await _db.Decks
+            .Include(d => d.Cards) // make sure cards are loaded
+            .FirstOrDefaultAsync(d => d.Id == deck.Id);
+
+        if (existingDeck == null)
+            throw new InvalidOperationException($"Deck with ID {deck.Id} not found.");
+
+        // Set the foreign key relationship
+        card.DeckId = existingDeck.Id; // Assuming your Cards model has a DeckId property
+    
+        existingDeck.Cards.Add(card);
+    
+        // Optional: Update the LastAccess time since we're modifying the deck
+        existingDeck.LastAcess = DateTime.Now;
+
+        await _db.SaveChangesAsync();
     }
+
+
+
     
     public async Task<List<Cards>> GetAllCardsByDeckAsync(int deckId)
     {
