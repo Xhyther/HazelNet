@@ -34,10 +34,17 @@ public partial class DeckViewModel : ViewModelBase
 
    private async Task LoadAllDecks()
    {
+      var currentDecks = await _deckService.GetAllDecksAsync();
+    
+      // Clear and rebuild the collection to ensure fresh data
       Decks.Clear();
-      foreach (var deck in await _deckService.GetAllDecksAsync())
-         Decks.Add(new DeckItemViewModel(deck, this)); // No manual OnPropertyChanged needed
+      foreach (var deck in currentDecks)
+      {
+         Decks.Add(new DeckItemViewModel(deck, this));
+      }
    }
+   
+   
    
 
    [RelayCommand]
@@ -83,6 +90,8 @@ public partial class DeckViewModel : ViewModelBase
       }
    }
    
+   
+
    
    
    
