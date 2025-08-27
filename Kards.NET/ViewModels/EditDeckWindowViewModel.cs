@@ -8,11 +8,18 @@ namespace Kards.NET.ViewModels;
 
 public partial class EditDeckWindowViewModel : ViewModelBase
 {
+    //Public properties
     public required Decks Decks {get;set;}
+    public required Action CloseWindow { get; set; }
+    
+    public string FrontName { get; set; }
+    public string BackDescription { get; set; }
+    
+    //Private Properties
     private int DeckId => Decks.Id;
     private readonly DeckService _deckService;
-    public required Action CloseWindow { get; set; }
-    public required Action RefreshDecks { get; set; }
+    
+    
 
     public EditDeckWindowViewModel(DeckService deckService)
     {
@@ -62,8 +69,35 @@ public partial class EditDeckWindowViewModel : ViewModelBase
                 Console.WriteLine("Inner exception: " + ex.InnerException.Message);
         }
     }
-    
 
+    [RelayCommand]
+    public async Task AddCardButton()
+    {
+        Cards card = new Cards()
+        {
+            CardName = FrontName,
+            CardDescription = BackDescription,
+            CreationDate = DateTime.Now,
+            DeckId = DeckId
+        };
+        Decks.LastAcess = DateTime.Now;
+        try
+        {
+            Console.WriteLine("Card successfully added!");
+            await _deckService.AddCardToDeckAsync(Decks, card);
+            CloseWindow.Invoke();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
+       
+        FrontName = string.Empty;
+        BackDescription = string.Empty;
+
+    }
 
 
 
