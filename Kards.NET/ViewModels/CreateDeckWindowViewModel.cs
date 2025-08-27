@@ -12,12 +12,11 @@ public partial class CreateDeckWindowViewModel : ObservableObject
 {
     public Action CloseWindow { get; set; }
 
-    private DeckService _deckService;
-    
-    
-    
-    [ObservableProperty]
-    private string _deckName =  string.Empty;
+    private readonly DeckService _deckService;
+
+
+
+    [ObservableProperty] private string _deckName = string.Empty;
     
     public CreateDeckWindowViewModel(DeckService deckService)
     {
@@ -49,7 +48,8 @@ public partial class CreateDeckWindowViewModel : ObservableObject
                 if (ex.InnerException != null)
                     Console.WriteLine("Inner exception: " + ex.InnerException.Message);
             }
-
+            
+            _deckName = String.Empty;
         }
     }
     
