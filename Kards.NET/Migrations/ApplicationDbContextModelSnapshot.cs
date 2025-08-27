@@ -61,9 +61,6 @@ namespace Kards.NET.Migrations
                     b.Property<DateTime>("LastAcess")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("NumberOfCards")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
                     b.ToTable("Decks");

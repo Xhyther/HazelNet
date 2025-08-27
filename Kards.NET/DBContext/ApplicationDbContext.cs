@@ -2,6 +2,7 @@
 using System.IO;
 using Kards.NET.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace Kards.NET.DBContext;
 
@@ -19,5 +20,17 @@ public class ApplicationDbContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new CardsEntityTypeConfiguration());
         modelBuilder.ApplyConfiguration(new DecksEntityTypeConfiguration());
+    }
+}
+
+public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+{
+    public ApplicationDbContext CreateDbContext(string[] args)
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+        
+        optionsBuilder.UseSqlite("Data Source=Kards.db");
+        
+        return new ApplicationDbContext(optionsBuilder.Options);
     }
 }
