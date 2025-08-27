@@ -30,7 +30,7 @@ public partial class App : Application
         var serviceCollection = new ServiceCollection();
         
         serviceCollection.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlite($"Data Source= Kards.db"));
+            options.UseSqlite($"Data Source=Kards.db"));
 
         
         serviceCollection.AddScoped<DeckService>();
