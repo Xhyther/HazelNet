@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Kards.NET.ViewModels"
-        mc:Ignorable="d" Width="960" Height="540"
+        mc:Ignorable="d" Width="1280" Height="720"
         x:DataType="vm:EditDeckWindowViewModel"
         x:Class="Kards.NET.Views.EditDeckWindow"
         WindowStartupLocation="CenterScreen"
@@ -70,31 +70,65 @@
                                                 
                                                 <ItemsRepeater.ItemTemplate>
                                                         <DataTemplate>
-                                                                <Border Margin="10,5"
-                                                                        CornerRadius="10"
-                                                                        BorderBrush="#e2e8f0"
-                                                                        BorderThickness="3"
-                                                                        Padding="5">
-                                                                        <Grid ColumnDefinitions="*, *, Auto">
-                                                                                <TextBox Grid.Column="0"
-                                                                                        Background="Transparent"
-                                                                                        BorderBrush="Transparent"
-                                                                                        AcceptsReturn="True"
-                                                                                        TextWrapping="Wrap"
-                                                                                        MinHeight="200"
-                                                                                        MinWidth="100"
-                                                                                        Text="{Binding CardName}"/>
-                                                                                <TextBox Grid.Column="1"
-                                                                                        Background="Transparent"
-                                                                                        BorderBrush="Transparent"
-                                                                                        AcceptsReturn="True"
-                                                                                        TextWrapping="Wrap"
-                                                                                        MinHeight="200"
-                                                                                        MinWidth="100"
-                                                                                        Text="{Binding CardDescription}"/>
-                                                                                <StackPanel Grid.Column="2"
-                                                                                        VerticalAlignment="Center"
-                                                                                        HorizontalAlignment="Center">
+                                                                <Grid RowDefinitions="Auto,*, Auto" Margin="3,0">
+                                                                        <Grid Grid.Row="0"
+                                                                              Margin="10,0"
+                                                                              Background="Transparent"
+                                                                              ColumnDefinitions="*, *, *">
+                                                                                
+                                                                                <TextBlock Grid.Column="0"  Margin="0 5"
+                                                                                        FontSize="14"
+                                                                                        FontFamily="Roboto"
+                                                                                        FontWeight="Bold"
+                                                                                        Foreground="#787878"
+                                                                                        Text="Front"
+                                                                                        HorizontalAlignment="Center"
+                                                                                        VerticalAlignment="Bottom"/>
+                                                                                <TextBlock Grid.Column="2"  Margin="0 5"
+                                                                                        FontSize="14"
+                                                                                        FontFamily="Roboto"
+                                                                                        FontWeight="Bold"
+                                                                                        Foreground="#787878"
+                                                                                        Text="Back"
+                                                                                        HorizontalAlignment="Center"
+                                                                                        VerticalAlignment="Bottom"/>
+                                                                                
+                                                                                
+                                                                        </Grid>
+                                                                        <Border Grid.Row="1" Margin="10,5"
+                                                                                        CornerRadius="10"
+                                                                                        BorderBrush="#e2e8f0"
+                                                                                        BorderThickness="3"
+                                                                                        BoxShadow="0 4 8 0 #22000000">
+                                                                                
+                                                                                        <Grid ColumnDefinitions="*, *, Auto">
+                                                                                                <TextBox Grid.Column="0"
+                                                                                                        Background="Transparent"
+                                                                                                        AcceptsReturn="True"
+                                                                                                        TextWrapping="Wrap"
+                                                                                                        MinHeight="200"
+                                                                                                        MinWidth="200"
+                                                                                                        Text="{Binding CardName}"
+                                                                                                        FontFamily="Roboto"
+                                                                                                        FontWeight="Medium"
+                                                                                                        FontSize="18"/>
+                                                                                                <TextBox Grid.Column="1"
+                                                                                                        Background="Transparent"
+                                                                                                        AcceptsReturn="True"
+                                                                                                        TextWrapping="Wrap"
+                                                                                                        MinHeight="200"
+                                                                                                        MinWidth="200"
+                                                                                                        Text="{Binding CardDescription}"
+                                                                                                        FontFamily="Roboto"
+                                                                                                        FontWeight="Medium"
+                                                                                                        FontSize="18"/>
+                                                                                        </Grid>
+                                                                                </Border>
+                                                                        <StackPanel Grid.Row="2"
+                                                                                        Margin="10,0"
+                                                                                        VerticalAlignment="Top"
+                                                                                        HorizontalAlignment="Right"
+                                                                                        Orientation="Horizontal">
                                                                                         <Button
                                                                                                 Margin="3,0"
                                                                                                 Content="Save"
@@ -120,9 +154,7 @@
                                                                                                 HorizontalContentAlignment="Center"
                                                                                                 VerticalContentAlignment="Center"/>
                                                                                 </StackPanel>
-                                                                                
-                                                                        </Grid>
-                                                                </Border>
+                                                                </Grid>
                                                         </DataTemplate>
                                                 </ItemsRepeater.ItemTemplate>
                                         </ItemsRepeater>
