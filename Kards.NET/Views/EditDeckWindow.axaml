@@ -62,38 +62,7 @@
                         <Grid ColumnDefinitions="*,*">
                                 <ScrollViewer Grid.Column="0"
                                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                                        <StackPanel>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 1</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 2</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 3</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 4</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 5</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 1</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 2</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 3</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 4</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 5</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 1</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 2</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 3</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 4</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 5</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 1</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 2</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 3</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 4</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 5</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 1</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 2</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 3</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 4</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 5</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 1</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 2</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 3</TextBlock>
-                                                <TextBlock FontSize="22" Height="100">Block 4</TextBlock>
-                                                <TextBlock FontSize="22" Height="100" Background="LightBlue">Block 5</TextBlock>
-                                        </StackPanel>
+                                          
                                 </ScrollViewer>
                                 <ScrollViewer Grid.Column="1"
                                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
