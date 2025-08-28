@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using Kards.NET.Models;
+﻿using Kards.NET.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
