@@ -62,6 +62,70 @@
                         <Grid ColumnDefinitions="*,*">
                                 <ScrollViewer Grid.Column="0"
                                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                        <ItemsRepeater ItemsSource="{Binding Decks.Cards}">
+                                                <ItemsRepeater.Layout>
+                                                        <StackLayout Orientation="Vertical"
+                                                                     Spacing="20"/>
+                                                </ItemsRepeater.Layout>
+                                                
+                                                <ItemsRepeater.ItemTemplate>
+                                                        <DataTemplate>
+                                                                <Border Margin="10,5"
+                                                                        CornerRadius="10"
+                                                                        BorderBrush="#e2e8f0"
+                                                                        BorderThickness="3"
+                                                                        Padding="5">
+                                                                        <Grid ColumnDefinitions="*, *, Auto">
+                                                                                <TextBox Grid.Column="0"
+                                                                                        Background="Transparent"
+                                                                                        BorderBrush="Transparent"
+                                                                                        AcceptsReturn="True"
+                                                                                        TextWrapping="Wrap"
+                                                                                        MinHeight="200"
+                                                                                        MinWidth="100"
+                                                                                        Text="{Binding CardName}"/>
+                                                                                <TextBox Grid.Column="1"
+                                                                                        Background="Transparent"
+                                                                                        BorderBrush="Transparent"
+                                                                                        AcceptsReturn="True"
+                                                                                        TextWrapping="Wrap"
+                                                                                        MinHeight="200"
+                                                                                        MinWidth="100"
+                                                                                        Text="{Binding CardDescription}"/>
+                                                                                <StackPanel Grid.Column="2"
+                                                                                        VerticalAlignment="Center"
+                                                                                        HorizontalAlignment="Center">
+                                                                                        <Button
+                                                                                                Margin="3,0"
+                                                                                                Content="Save"
+                                                                                                Background="#10b981" 
+                                                                                                FontSize="13"
+                                                                                                FontWeight="Medium"
+                                                                                                Foreground="#f1f5f9"
+                                                                                                CornerRadius="5"
+                                                                                                Height="35"
+                                                                                                Width="70"
+                                                                                                HorizontalContentAlignment="Center"
+                                                                                                VerticalContentAlignment="Center"/>
+                                                                                        <Button
+                                                                                                Margin="3,0"
+                                                                                                Content="Delete"
+                                                                                                Background="#b91048" 
+                                                                                                FontSize="13"
+                                                                                                FontWeight="Medium"
+                                                                                                Foreground="#f1f5f9"
+                                                                                                CornerRadius="5"
+                                                                                                Height="35"
+                                                                                                Width="70"
+                                                                                                HorizontalContentAlignment="Center"
+                                                                                                VerticalContentAlignment="Center"/>
+                                                                                </StackPanel>
+                                                                                
+                                                                        </Grid>
+                                                                </Border>
+                                                        </DataTemplate>
+                                                </ItemsRepeater.ItemTemplate>
+                                        </ItemsRepeater>
                                           
                                 </ScrollViewer>
                                 <ScrollViewer Grid.Column="1"
