@@ -17,8 +17,10 @@ public partial class EditDeckWindow : Window
 
     public EditDeckWindow(EditDeckWindowViewModel viewModel, Decks deck)
     {
+        if (deck == null) return;
+        
         InitializeComponent();
-        viewModel.Decks = deck;
+        viewModel.LoadDeck(deck);
         viewModel.CloseWindow = Close;
         DataContext = viewModel;
     }
