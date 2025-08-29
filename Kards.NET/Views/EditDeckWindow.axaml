@@ -62,7 +62,7 @@
                         <Grid ColumnDefinitions="*,*">
                                 <ScrollViewer Grid.Column="0"
                                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                                        <ItemsRepeater ItemsSource="{Binding Decks.Cards}">
+                                        <ItemsRepeater ItemsSource="{Binding Cards}">
                                                 <ItemsRepeater.Layout>
                                                         <StackLayout Orientation="Vertical"
                                                                      Spacing="20"/>
