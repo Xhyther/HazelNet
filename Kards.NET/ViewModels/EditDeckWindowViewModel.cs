@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
 using Kards.NET.Models;
@@ -10,6 +11,7 @@ public partial class EditDeckWindowViewModel : ViewModelBase
 {
     //Public properties
     public required Decks Decks {get;set;}
+    public ObservableCollection<Cards> Cards { get; set; } = new();
     public required Action CloseWindow { get; set; }
     
     public string FrontName { get; set; }
@@ -25,6 +27,23 @@ public partial class EditDeckWindowViewModel : ViewModelBase
     {
         _deckService = deckService;
     }
+
+
+
+    public void LoadDeck(Decks deck)
+    {
+        Decks = deck;
+        Cards.Clear();
+
+        if (deck.Cards != null)
+        {
+            foreach (var card in deck.Cards)
+                Cards.Add(card);
+        }
+    }
+
+
+
 
     [RelayCommand]
     public async Task DeleteDeckButton()
@@ -85,7 +104,8 @@ public partial class EditDeckWindowViewModel : ViewModelBase
         {
             Console.WriteLine("Card successfully added!");
             await _deckService.AddCardToDeckAsync(Decks, card);
-            CloseWindow.Invoke();
+            
+            Cards.Add(card);
         }
         catch (Exception e)
         {
@@ -98,8 +118,8 @@ public partial class EditDeckWindowViewModel : ViewModelBase
         BackDescription = string.Empty;
 
     }
-
-
-
-
+    
+    
+    
+    
 }
