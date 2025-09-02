@@ -269,7 +269,7 @@
                                                                         Width="100"
                                                                         HorizontalContentAlignment="Center"
                                                                         VerticalContentAlignment="Center"/>
-                                                                <Button
+                                                                <Button Command="{Binding ClearAllCardsButton}"
                                                                         Margin="5,0, 0 ,0"
                                                                         Content="Clear All"
                                                                         Background="#b91048"
