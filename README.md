@@ -21,7 +21,7 @@ A modern flashcard and study application built with .NET and AvaloniaUI for effi
 *"Card Decks" tab showing deck overview*
 
 ## Video
-![Sample Video](./video1.mkv.gif)
+![Sample Video](./video1.gif)
 
 
 ## Project Structure
