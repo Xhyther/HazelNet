@@ -69,6 +69,16 @@ public class DeckService
             await _db.SaveChangesAsync();
         }
     }
+
+    public async Task DeleteAllCardsInDeckAsync(int id)
+    {
+        var decks = await _db.Decks
+            .Include(d => d.Cards)
+            .ToListAsync();
+        decks.Clear();
+        
+        await _db.SaveChangesAsync();
+    }
     
     //Implement Card functions
     public async Task AddCardToDeckAsync(Decks deck, Cards card)
