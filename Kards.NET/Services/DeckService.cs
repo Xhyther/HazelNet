@@ -72,12 +72,26 @@ public class DeckService
 
     public async Task DeleteAllCardsInDeckAsync(int id)
     {
-        var decks = await _db.Decks
+        var deck = await _db.Decks
             .Include(d => d.Cards)
-            .ToListAsync();
-        decks.Clear();
+            .FirstOrDefaultAsync(d => d.Id == id);
+        
+        deck?.Cards.Clear();
+        await _db.SaveChangesAsync();
+    }
+
+    public async Task DeleteCardByIdAsync(int deckId, int cardId)
+    {
+        var deck = await _db.Decks
+            .Include(d => d.Cards)
+            .FirstOrDefaultAsync(d => d.Id == deckId);
+
+        foreach (var card in deck.Cards)
+            if (card.Id == cardId)
+                deck.Cards.Remove(card);
         
         await _db.SaveChangesAsync();
+
     }
     
     //Implement Card functions
