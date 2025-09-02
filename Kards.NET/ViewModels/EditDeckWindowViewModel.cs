@@ -118,7 +118,24 @@ public partial class EditDeckWindowViewModel : ViewModelBase
         BackDescription = string.Empty;
 
     }
-    
+
+    [RelayCommand]
+    public async Task ClearAllCardsButton()
+    {
+        try
+        {
+            Cards.Clear();
+            await _deckService.DeleteAllCardsInDeckAsync(DeckId);
+            Console.WriteLine("Cards successfully Cleared!");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            Console.WriteLine(e.InnerException);
+            Console.WriteLine(e.Message);
+            throw;
+        }
+    }
     
     
     
