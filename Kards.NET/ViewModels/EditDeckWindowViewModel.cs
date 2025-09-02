@@ -136,6 +136,30 @@ public partial class EditDeckWindowViewModel : ViewModelBase
             throw;
         }
     }
+
+    [RelayCommand]
+    public async Task DeleteCardByIdButton(int cardId)
+    {
+        Console.WriteLine($"Attempting to delete card: {cardId}");
+        await _deckService.DeleteCardByIdAsync(DeckId, cardId);
+        Console.WriteLine("Successfully deleted card!");
+
+        try
+        {
+            Console.WriteLine($"Attempting to delete card: {cardId}");
+            await _deckService.DeleteCardByIdAsync(DeckId, cardId);
+            Console.WriteLine("Successfully deleted card!");
+
+            foreach (var card in Cards)
+                if (card.Id == cardId)
+                    Cards.Remove(card);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
     
     
     
