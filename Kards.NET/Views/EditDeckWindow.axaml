@@ -1,0 +1,297 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Kards.NET.ViewModels"
+        mc:Ignorable="d" Width="1280" Height="720"
+        x:DataType="vm:EditDeckWindowViewModel"
+        x:Class="Kards.NET.Views.EditDeckWindow"
+        WindowStartupLocation="CenterScreen"
+        SystemDecorations="BorderOnly"
+        WindowState="Normal"
+        Title="Edit Deck">
+        
+        
+        
+        <Grid RowDefinitions="Auto, *"
+              Background="#f8fafc">
+                <Grid Grid.Row = "0" 
+                      ColumnDefinitions="Auto, *"
+                      Margin="50,25">
+                        <StackPanel Grid.Column="0"
+                                    Orientation="Vertical">
+                                <Button 
+                                        Click="Back_to_Deck_Click"
+                                        Background="Transparent"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center">
+                                        <StackPanel Orientation="Horizontal">
+                                                <Image Source="../Assets/Image/left-arrow.png"
+                                                       Width="12"
+                                                       Height="12"
+                                                       Stretch="Uniform"/>
+                                                <TextBlock FontWeight="SemiBold"
+                                                           FontSize="16"
+                                                           FontFamily = "Roboto"
+                                                           Foreground="#787878"
+                                                           Margin="5,0">
+                                                        Back to Decks
+                                                </TextBlock>
+                                        </StackPanel>
+                                </Button>
+                                
+                                <TextBlock FontWeight="Bold"
+                                           FontSize="40"
+                                           FontFamily = "Roboto"
+                                           Foreground="#1e293b"
+                                           Padding="10,0" 
+                                           Text="{Binding Decks.DeckName}"/>
+
+
+                        </StackPanel>
+                       
+           
+                        
+
+                </Grid>
+                
+                <Grid Grid.Row = "1"
+                      Margin="50,0">
+                        <Grid ColumnDefinitions="*,*">
+                                <ScrollViewer Grid.Column="0"
+                                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                        <ItemsRepeater ItemsSource="{Binding Cards}">
+                                                <ItemsRepeater.Layout>
+                                                        <StackLayout Orientation="Vertical"
+                                                                     Spacing="20"/>
+                                                </ItemsRepeater.Layout>
+                                                
+                                                <ItemsRepeater.ItemTemplate>
+                                                        <DataTemplate>
+                                                                <Grid RowDefinitions="Auto,*, Auto" Margin="3,0">
+                                                                        <Grid Grid.Row="0"
+                                                                              Margin="10,0"
+                                                                              Background="Transparent"
+                                                                              ColumnDefinitions="*, *, *">
+                                                                                
+                                                                                <TextBlock Grid.Column="0"  Margin="0 5"
+                                                                                        FontSize="14"
+                                                                                        FontFamily="Roboto"
+                                                                                        FontWeight="Bold"
+                                                                                        Foreground="#787878"
+                                                                                        Text="Front"
+                                                                                        HorizontalAlignment="Center"
+                                                                                        VerticalAlignment="Bottom"/>
+                                                                                <TextBlock Grid.Column="2"  Margin="0 5"
+                                                                                        FontSize="14"
+                                                                                        FontFamily="Roboto"
+                                                                                        FontWeight="Bold"
+                                                                                        Foreground="#787878"
+                                                                                        Text="Back"
+                                                                                        HorizontalAlignment="Center"
+                                                                                        VerticalAlignment="Bottom"/>
+                                                                                
+                                                                                
+                                                                        </Grid>
+                                                                        <Border Grid.Row="1" Margin="10,5"
+                                                                                        CornerRadius="10"
+                                                                                        BorderBrush="#e2e8f0"
+                                                                                        BorderThickness="3"
+                                                                                        BoxShadow="0 4 8 0 #22000000">
+                                                                                
+                                                                                        <Grid ColumnDefinitions="*, *, Auto">
+                                                                                                <TextBox Grid.Column="0"
+                                                                                                        Background="Transparent"
+                                                                                                        AcceptsReturn="True"
+                                                                                                        TextWrapping="Wrap"
+                                                                                                        MinHeight="200"
+                                                                                                        MinWidth="200"
+                                                                                                        Text="{Binding CardName}"
+                                                                                                        FontFamily="Roboto"
+                                                                                                        FontWeight="Medium"
+                                                                                                        FontSize="18"/>
+                                                                                                <TextBox Grid.Column="1"
+                                                                                                        Background="Transparent"
+                                                                                                        AcceptsReturn="True"
+                                                                                                        TextWrapping="Wrap"
+                                                                                                        MinHeight="200"
+                                                                                                        MinWidth="200"
+                                                                                                        Text="{Binding CardDescription}"
+                                                                                                        FontFamily="Roboto"
+                                                                                                        FontWeight="Medium"
+                                                                                                        FontSize="18"/>
+                                                                                        </Grid>
+                                                                                </Border>
+                                                                        <StackPanel Grid.Row="2"
+                                                                                        Margin="10,0"
+                                                                                        VerticalAlignment="Top"
+                                                                                        HorizontalAlignment="Right"
+                                                                                        Orientation="Horizontal">
+                                                                                        <Button
+                                                                                                Margin="3,0"
+                                                                                                Content="Save"
+                                                                                                Background="#10b981" 
+                                                                                                FontSize="13"
+                                                                                                FontWeight="Medium"
+                                                                                                Foreground="#f1f5f9"
+                                                                                                CornerRadius="5"
+                                                                                                Height="35"
+                                                                                                Width="70"
+                                                                                                HorizontalContentAlignment="Center"
+                                                                                                VerticalContentAlignment="Center"/>
+                                                                                        <Button 
+                                                                                                Margin="3,0"
+                                                                                                Content="Delete"
+                                                                                                Background="#b91048" 
+                                                                                                FontSize="13"
+                                                                                                FontWeight="Medium"
+                                                                                                Foreground="#f1f5f9"
+                                                                                                CornerRadius="5"
+                                                                                                Height="35"
+                                                                                                Width="70"
+                                                                                                HorizontalContentAlignment="Center"
+                                                                                                VerticalContentAlignment="Center"/>
+                                                                                </StackPanel>
+                                                                </Grid>
+                                                        </DataTemplate>
+                                                </ItemsRepeater.ItemTemplate>
+                                        </ItemsRepeater>
+                                          
+                                </ScrollViewer>
+                                <ScrollViewer Grid.Column="1"
+                                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                        <Grid RowDefinitions="*,*" Margin="30,0">
+                                                <Grid Grid.Row = "0" RowDefinitions="Auto, Auto, Auto"
+                                                      Margin="10,0">
+                                                        <TextBlock Grid.Row="0"  Margin="0 5"
+                                                                   FontSize="16"
+                                                                   FontFamily="Roboto"
+                                                                   FontWeight="Bold"
+                                                                   Foreground="#1e293b"
+                                                                   Text="Deck Name:"/>
+                                                        <TextBox Grid.Row="1"
+                                                                 Text="{Binding Decks.DeckName}"
+                                                                 />
+                                                        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,30" 
+                                                                    HorizontalAlignment="Right"
+                                                                    VerticalAlignment="Center">
+                                                        <Button Command="{Binding RenameDeckButton}"
+                                                                Margin="0,0, 5 ,0"
+                                                                Content="Rename"
+                                                                Background="#10b981" 
+                                                                FontSize="13"
+                                                                FontWeight="Medium"
+                                                                Foreground="#f1f5f9"
+                                                                CornerRadius="5"
+                                                                Height="35"
+                                                                Width="70"
+                                                                HorizontalContentAlignment="Center"
+                                                                VerticalContentAlignment="Center"/>
+                                                        <Button Command="{Binding DeleteDeckButton}"
+                                                                Margin="5,0, 0 ,0"
+                                                                Content="Delete"
+                                                                Background="#b91048"
+                                                                FontSize="13"
+                                                                FontWeight="Medium"
+                                                                Foreground="#f1f5f9"
+                                                                CornerRadius="5"
+                                                                Height="35"
+                                                                Width="70"
+                                                                HorizontalContentAlignment="Center"
+                                                                VerticalContentAlignment="Center"/>
+                                                        
+                                                        
+                                                </StackPanel>
+                                                </Grid>
+                                                
+                                                <Grid Grid.Row="1" RowDefinitions="Auto, Auto, Auto, Auto"
+                                                      Margin="10,0">
+                                                        <StackPanel Grid.Row="0">
+                                                                <TextBlock FontWeight="Bold"
+                                                                           FontSize="22"
+                                                                           FontFamily = "Roboto"
+                                                                           Foreground="#1e293b"
+                                                                           Text="Add New Card"/>
+                                                                <TextBlock FontWeight="Normal"
+                                                                           FontSize="18"
+                                                                           FontFamily = "Roboto"
+                                                                           Foreground="#787878"
+                                                                           Text="Create new flashcard for this deck"/>
+                                                        </StackPanel>
+                                                        
+                                                        <StackPanel Grid.Row="1">
+                                                                <TextBlock 
+                                                                           FontSize="16"
+                                                                           FontFamily="Roboto"
+                                                                           FontWeight="Bold"
+                                                                           Foreground="#1e293b"
+                                                                           Margin="0,30,0, 0"
+                                                                           Text="Front (Question)"/>
+                                                                <TextBox MinHeight="150" 
+                                                                         AcceptsReturn="True" 
+                                                                         Watermark="Enter the question or prompt"
+                                                                         TextWrapping="Wrap"
+                                                                         Text = "{Binding FrontName}"/>
+                                                                
+                                                        </StackPanel>
+                                                        
+                                                        <StackPanel Grid.Row="2">
+                                                                <TextBlock 
+                                                                        FontSize="16"
+                                                                        FontFamily="Roboto"
+                                                                        FontWeight="Bold"
+                                                                        Foreground="#1e293b"
+                                                                        Margin="0,20,0, 0"
+                                                                        Text="Back (Answer)"/>
+                                                                <TextBox MinHeight="150" 
+                                                                         AcceptsReturn="True"
+                                                                         Watermark="Enter the answer or explanation"
+                                                                         TextWrapping="Wrap"
+                                                                         Text = "{Binding BackDescription}"/>
+                                                                
+                                                        </StackPanel>
+                                                        
+                                                        <StackPanel Grid.Row="3" Orientation="Horizontal"
+                                                                    HorizontalAlignment="Right"
+                                                                    VerticalAlignment="Center"
+                                                                    Margin="0,30">
+                                                                <Button Command="{Binding AddCardButton}"
+                                                                        Margin="0,0, 5 ,0"
+                                                                        Content="Save Card"
+                                                                        Background="#10b981" 
+                                                                        FontSize="13"
+                                                                        FontWeight="Medium"
+                                                                        Foreground="#f1f5f9"
+                                                                        CornerRadius="5"
+                                                                        Height="35"
+                                                                        Width="100"
+                                                                        HorizontalContentAlignment="Center"
+                                                                        VerticalContentAlignment="Center"/>
+                                                                <Button Command="{Binding ClearAllCardsButton}"
+                                                                        Margin="5,0, 0 ,0"
+                                                                        Content="Clear All"
+                                                                        Background="#b91048"
+                                                                        FontSize="13"
+                                                                        FontWeight="Medium"
+                                                                        Foreground="#f1f5f9"
+                                                                        CornerRadius="5"
+                                                                        Height="35"
+                                                                        Width="100"
+                                                                        HorizontalContentAlignment="Center"
+                                                                        VerticalContentAlignment="Center"/>
+                                                        </StackPanel>
+                                                </Grid>
+                                                
+                                        </Grid>
+                                        
+                                        
+                                        
+                                </ScrollViewer>
+                        </Grid>
+                </Grid>
+        </Grid>
+        
+        
+</Window>

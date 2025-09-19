@@ -1,0 +1,20 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Kards.NET.Views"
+        mc:Ignorable="d" Width="600" Height="300"
+        x:Class="Kards.NET.Views.CreateCardWindow"
+        Title="Create Card"
+        Background="Transparent"
+        TransparencyLevelHint="Transparent">
+        
+        <Border BorderBrush="Black" CornerRadius="15" VerticalAlignment="Center" Padding="20">
+                <StackPanel Orientation="Vertical"  Margin="20,0">
+                        <TextBlock Margin="0 5" >Title:</TextBlock>
+                        <TextBox Watermark="Enter Title of Card here..."/>
+                        <TextBlock Margin="0 5" >Back:</TextBlock>
+                        <TextBox Watermark="Enter definition here..." Height="100" AcceptsReturn="True" TextWrapping="Wrap"/>
+                </StackPanel>
+        </Border>
+</Window>

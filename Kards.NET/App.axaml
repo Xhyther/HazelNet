@@ -1,0 +1,21 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Kards.NET.App"
+             xmlns:local="using:Kards.NET"
+             RequestedThemeVariant="Light">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+             
+    <Application.Resources>
+        <FontFamily x:Key="LexendDeca">avares://Kards.NET/Assets/Fonts/LexendDeca-Regular.ttf#Lexend Deca</FontFamily>
+    </Application.Resources>
+  
+    <Application.Styles>
+        <FluentTheme />
+        
+        
+    </Application.Styles>
+</Application>

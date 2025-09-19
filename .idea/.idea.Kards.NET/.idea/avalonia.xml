@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Kards.NET/App.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/CreateCardView.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/CreateCardWindow.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/CreateDeckView.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/CreateDeckWindow.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/DashboardView.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/DeckView.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/EditDeckView.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/EditDeckWindow.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/MainWindow.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/StatsView.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/StudyView.axaml" value="Kards.NET/Kards.NET.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

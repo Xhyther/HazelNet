@@ -1,0 +1,162 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Kards.NET.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        d:DesignWidth="1366" d:DesignHeight="768"
+        WindowState="Maximized"
+        x:Class="Kards.NET.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/Image/HazelNetLogo.png"
+        Title="HazelNET"
+        Background="#DDE0E4">
+   
+        
+    <SplitView IsPaneOpen="True"
+               DisplayMode="Inline"
+               OpenPaneLength="250">
+            
+            <SplitView.Pane>
+                
+                <Border Background="#ffffff" BorderThickness="0,0,2,0" BorderBrush="#e2e8f0">
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <Grid ColumnDefinitions="Auto,*" 
+                              VerticalAlignment="Center"
+                              Margin="20,20" >
+                           
+                            <Image Grid.Column="0" Height="40" Width="40"
+                                   Source="../Assets/Image/HazelNetLogo.png"></Image>
+                            <Label Grid.Column="1" 
+                                   FontWeight="Solid"
+                                   FontFamily="Roboto"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center">HazelNet</Label>
+                        </Grid>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" >
+                            
+                            <Button Command="{Binding DashboardViewCommand}" 
+                                    Height="50" Width="210" 
+                                    Background="Transparent"
+                                    Margin="0,3">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="../Assets/Image/dashboard.png" Width="25" Height="25"  Margin="5,0"> </Image>
+                                    <TextBlock FontWeight="SemiBold"
+                                               FontSize="16"
+                                               FontFamily = "Roboto"
+                                               Margin="20,0">
+                                        Dashboard
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Command="{Binding DeckViewCommand}" 
+                                    Height="50" Width="210" 
+                                    Background="Transparent"
+                                    Margin="0,3">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="../Assets/Image/decks.png" Width="25" Height="25"  Margin="5,0"> </Image>
+                                    <TextBlock FontWeight="SemiBold"
+                                               FontSize="16"
+                                               FontFamily = "Roboto"
+                                               Margin="20,0">
+                                        Card Decks
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Command="{Binding StudyViewCommand}" 
+                                    Height="50" Width="210" 
+                                    Background="Transparent" 
+                                    Margin="0,3">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="../Assets/Image/study.png" Width="25" Height="25"  Margin="5,0"> </Image>
+                                    <TextBlock FontWeight="SemiBold"
+                                               FontSize="16"
+                                               FontFamily = "Roboto"
+                                               Margin="20,0">
+                                        Study
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Command="{Binding StatsViewCommand}"
+                                    Height="50" Width="210" 
+                                    Background="Transparent" 
+                                    Margin="0,3">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                    <Image Source="../Assets/Image/bars-graph.png" Width="25" Height="25"  Margin="5,0"> </Image>
+                                    <TextBlock FontWeight="SemiBold"
+                                               FontSize="16"
+                                               FontFamily = "Roboto"
+                                               Margin="20,0">
+                                        Statistics
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            
+                        </StackPanel>
+                    
+                </StackPanel>
+                </Border>
+                
+            </SplitView.Pane>
+            
+            <SplitView.Content>
+                
+                <Border Background="#f8fafc">
+                    <Grid RowDefinitions="Auto, *">
+                        <Border Grid.Row="0" Padding="10" 
+                                Height="65"
+                                Background="#ffffff"
+                                Margin="0,0,0,20"
+                                BorderThickness="0,0,0,2" 
+                                BorderBrush="#e2e8f0"
+                                VerticalAlignment="Center">
+                            <Grid ColumnDefinitions="Auto, 2*, *, Auto, Auto" 
+                                  VerticalAlignment="Center">
+                                <TextBlock Grid.Column="0" VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Left"
+                                           TextAlignment="Center"
+                                           FontFamily="Roboto"
+                                           FontSize="24"
+                                           FontWeight="Bold"
+                                           Text="{Binding Navigation.PageTitle}"
+                                           TextWrapping="Wrap" />
+                                <TextBox Grid.Column="2" Watermark="Search cards.." 
+                                         CornerRadius="10" 
+                                         Margin="5,0"
+                                         Height="25"
+                                         VerticalContentAlignment="Center"/>
+                                <Button Grid.Column="3" Background="Transparent">
+                                    <Image Source="../Assets/Image/notification-bell.png"
+                                           Height="22"
+                                           Width="22"
+                                           Stretch="Uniform"/>
+                                </Button>
+                                
+                                <Button Grid.Column="4" Background="Transparent" >
+                                    <Image Source="../Assets/Image/settings.png"
+                                           Height="25"
+                                           Width="25"
+                                           Stretch="Uniform"/>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    
+                        <TransitioningContentControl Grid.Row="1" Content="{Binding Navigation.CurrentPage}"></TransitioningContentControl>
+                    </Grid>
+                </Border>
+                
+                
+            </SplitView.Content>
+                
+        </SplitView>
+
+        
+
+</Window>
+
+
