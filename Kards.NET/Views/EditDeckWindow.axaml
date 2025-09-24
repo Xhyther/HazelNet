@@ -62,7 +62,7 @@
                         <Grid ColumnDefinitions="*,*">
                                 <ScrollViewer Grid.Column="0"
                                               HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                                        <ItemsRepeater ItemsSource="{Binding Cards}">
+                                        <ItemsRepeater ItemsSource="{Binding CardS}">
                                                 <ItemsRepeater.Layout>
                                                         <StackLayout Orientation="Vertical"
                                                                      Spacing="20"/>
@@ -108,7 +108,7 @@
                                                                                                         TextWrapping="Wrap"
                                                                                                         MinHeight="200"
                                                                                                         MinWidth="200"
-                                                                                                        Text="{Binding CardName}"
+                                                                                                        Text="{Binding Card.CardName}"
                                                                                                         FontFamily="Roboto"
                                                                                                         FontWeight="Medium"
                                                                                                         FontSize="18"/>
@@ -118,7 +118,7 @@
                                                                                                         TextWrapping="Wrap"
                                                                                                         MinHeight="200"
                                                                                                         MinWidth="200"
-                                                                                                        Text="{Binding CardDescription}"
+                                                                                                        Text="{Binding Card.CardDescription}"
                                                                                                         FontFamily="Roboto"
                                                                                                         FontWeight="Medium"
                                                                                                         FontSize="18"/>
@@ -141,7 +141,8 @@
                                                                                                 Width="70"
                                                                                                 HorizontalContentAlignment="Center"
                                                                                                 VerticalContentAlignment="Center"/>
-                                                                                        <Button 
+                                                                                        <Button Command="{Binding Parent.DeleteCardByIdButton}"
+                                                                                                CommandParameter="{Binding Card.Id}"
                                                                                                 Margin="3,0"
                                                                                                 Content="Delete"
                                                                                                 Background="#b91048" 
