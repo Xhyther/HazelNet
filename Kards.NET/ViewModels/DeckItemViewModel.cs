@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Kards.NET.Models;
+﻿using Kards.NET.Models;
 
 namespace Kards.NET.ViewModels;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
 using Kards.NET.Models;
@@ -11,7 +12,7 @@ public partial class EditDeckWindowViewModel : ViewModelBase
 {
     //Public properties
     public required Decks Decks {get;set;}
-    public ObservableCollection<Cards> Cards { get; set; } = new();
+    public ObservableCollection<EditDeckItemViewModel> CardS { get; set; } = new();
     public required Action CloseWindow { get; set; }
     
     public string FrontName { get; set; }
@@ -33,12 +34,12 @@ public partial class EditDeckWindowViewModel : ViewModelBase
     public void LoadDeck(Decks deck)
     {
         Decks = deck;
-        Cards.Clear();
+        CardS.Clear();
 
-        if (deck.Cards != null)
+        if (deck.Cards.Count > 0)
         {
             foreach (var card in deck.Cards)
-                Cards.Add(card);
+                CardS.Add(new EditDeckItemViewModel(this, card));
         }
     }
 
@@ -105,7 +106,7 @@ public partial class EditDeckWindowViewModel : ViewModelBase
             Console.WriteLine("Card successfully added!");
             await _deckService.AddCardToDeckAsync(Decks, card);
             
-            Cards.Add(card);
+            CardS.Add(new EditDeckItemViewModel(this, card));
         }
         catch (Exception e)
         {
@@ -124,7 +125,7 @@ public partial class EditDeckWindowViewModel : ViewModelBase
     {
         try
         {
-            Cards.Clear();
+            CardS.Clear();
             await _deckService.DeleteAllCardsInDeckAsync(DeckId);
             Console.WriteLine("Cards successfully Cleared!");
         }
@@ -140,9 +141,6 @@ public partial class EditDeckWindowViewModel : ViewModelBase
     [RelayCommand]
     public async Task DeleteCardByIdButton(int cardId)
     {
-        Console.WriteLine($"Attempting to delete card: {cardId}");
-        await _deckService.DeleteCardByIdAsync(DeckId, cardId);
-        Console.WriteLine("Successfully deleted card!");
 
         try
         {
@@ -150,9 +148,9 @@ public partial class EditDeckWindowViewModel : ViewModelBase
             await _deckService.DeleteCardByIdAsync(DeckId, cardId);
             Console.WriteLine("Successfully deleted card!");
 
-            foreach (var card in Cards)
-                if (card.Id == cardId)
-                    Cards.Remove(card);
+            var cardToRemove = CardS.FirstOrDefault(c => c.Card.Id == cardId);
+            if (cardToRemove != null)
+                CardS.Remove(cardToRemove);
         }
         catch (Exception e)
         {

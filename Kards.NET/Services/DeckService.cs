@@ -86,11 +86,12 @@ public class DeckService
             .Include(d => d.Cards)
             .FirstOrDefaultAsync(d => d.Id == deckId);
 
-        foreach (var card in deck.Cards)
-            if (card.Id == cardId)
-                deck.Cards.Remove(card);
-        
-        await _db.SaveChangesAsync();
+        var card = deck?.Cards.FirstOrDefault(c => c.Id == cardId);
+        if (card != null)
+        {
+            deck?.Cards.Remove(card);
+            await _db.SaveChangesAsync();
+        }
 
     }
     
