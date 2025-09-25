@@ -129,7 +129,7 @@
                                                                                         VerticalAlignment="Top"
                                                                                         HorizontalAlignment="Right"
                                                                                         Orientation="Horizontal">
-                                                                                        <Button
+                                                                                        <Button Command="{Binding Parent.UpdateCardButton}"
                                                                                                 Margin="3,0"
                                                                                                 Content="Save"
                                                                                                 Background="#10b981" 

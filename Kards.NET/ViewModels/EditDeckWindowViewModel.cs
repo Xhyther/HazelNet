@@ -91,6 +91,24 @@ public partial class EditDeckWindowViewModel : ViewModelBase
     }
 
     [RelayCommand]
+    public async Task UpdateCardButton()
+    {
+        try
+        {
+            Console.WriteLine($"Attempting to edit Card: {CardS.FirstOrDefault()?.Card}");
+            Decks.LastAcess = DateTime.Now;
+            await _deckService.UpdateDeckAsync(Decks);
+           
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error updating deck: " + ex.Message);
+            if (ex.InnerException != null)
+                Console.WriteLine("Inner exception: " + ex.InnerException.Message);
+        }
+    }
+
+    [RelayCommand]
     public async Task AddCardButton()
     {
         Cards card = new Cards()
