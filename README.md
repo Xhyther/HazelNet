@@ -20,6 +20,10 @@ A modern flashcard and study application built with .NET and AvaloniaUI for effi
 ![Kards.NET Dashboard](Screenshot.png)
 *"Card Decks" tab showing deck overview*
 
+## Video
+![Sample Video](./video1.gif)
+
+
 ## Project Structure
 
 ```
