@@ -5,18 +5,21 @@ namespace Kards.NET.ViewModels;
 
 public class StudyWindowViewModel
 {
-    public Decks deck {get; set;}
-    public ObservableCollection<Cards> Card { get; set; }
-    public string currentDisplay { get; set; }
+    private Decks Deck {get; set;} =  new();
+    public ObservableCollection<Cards> Kards { get; set; } = new();
 
-    public StudyWindowViewModel()
-    {
-        currentDisplay = "sample front";
-    }
-
+    
+    
     public void LoadCard(Decks d)
     {
-        deck = d;
+       
+        Deck = d;
+        Kards.Clear();
+
+        foreach (var c in Deck.Cards)
+        {
+            Kards.Add(c);
+        }
     }
     
 }

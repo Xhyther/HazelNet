@@ -19,7 +19,46 @@
                 Padding = "10"
                 Margin = "10">
                 
-                <Grid ColumnDefinitions="Auto, *, Auto"
+               <Grid>
+                       <Carousel Name="Slides"
+                                 ItemsSource="{Binding Kards}">
+                               <Carousel.PageTransition >
+                                       <CompositePageTransition>
+                                               <PageSlide Duration="0:00:00.100" Orientation="Horizontal" />
+                                       </CompositePageTransition>
+                               </Carousel.PageTransition>
+                               
+                               <Carousel.ItemTemplate>
+                                       <DataTemplate>
+                                               <TextBlock  Text="{Binding CardName}"  
+                                                          FontWeight="Bold"
+                                                          FontSize="50"
+                                                          FontFamily = "Roboto"
+                                                          Foreground="#787878"
+                                                          Margin="15,0"
+                                                          HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
+                                       </DataTemplate>
+                                       
+                               </Carousel.ItemTemplate>
+                               
+                       </Carousel>
+                       
+                       <Panel Margin="20">
+                               <Button Background="White" FontSize="30" Click="Previous">&lt;</Button>
+                               <Button Background="White" FontSize="30" Click="Next" 
+                                       HorizontalAlignment="Right">&gt;</Button>
+                       </Panel>
+               </Grid> 
+                
+                
+                
+        </Border>
+</Window>
+
+
+<!-- 
+<Grid ColumnDefinitions="Auto, *, Auto"
                             VerticalAlignment="Center">
                     
                     <Button Grid.Column="0">
@@ -53,9 +92,5 @@
                         </Button>
                         
                 </Grid>
-                
-                
-                
-        </Border>
-</Window>
+-->
 
