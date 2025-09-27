@@ -13,6 +13,7 @@ public partial class DeckViewModel : ViewModelBase
    private readonly DeckService _deckService;
    private readonly CreateDeckWindowViewModel _createDeckWindowViewModel;
    private readonly EditDeckWindowViewModel _editDeckWindowViewModel;
+   private readonly StudyWindowViewModel _studyWindowViewModel;
    
    public ObservableCollection<DeckItemViewModel> Decks { get; set; } = new ObservableCollection<DeckItemViewModel>();
 
@@ -22,13 +23,15 @@ public partial class DeckViewModel : ViewModelBase
    public DeckViewModel(
       DeckService deckService, 
       CreateDeckWindowViewModel  createDeckWindowViewModel,
-      EditDeckWindowViewModel editDeckWindowViewModel
+      EditDeckWindowViewModel editDeckWindowViewModel,
+      StudyWindowViewModel studyWindowViewModel
       )
    {
       //Dependency Injection
       _deckService = deckService;
       _createDeckWindowViewModel = createDeckWindowViewModel;
       _editDeckWindowViewModel = editDeckWindowViewModel;
+      _studyWindowViewModel = studyWindowViewModel;
       _ = Task.Run(LoadAllDecks);
    }
 
@@ -81,6 +84,9 @@ public partial class DeckViewModel : ViewModelBase
       try
       {
          Console.WriteLine($"Studying deck: {deck.DeckName} (ID: {deck.Id})");
+         var window = new StudyWindow(_studyWindowViewModel, deck);
+         window.Closed += async (s, e) => await LoadAllDecks();
+         window.Show();
          // Add your study logic here
       }
       catch (Exception e)
