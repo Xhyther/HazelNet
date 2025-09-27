@@ -15,6 +15,7 @@
         <entry key="Kards.NET/Views/MainWindow.axaml" value="Kards.NET/Kards.NET.csproj" />
         <entry key="Kards.NET/Views/StatsView.axaml" value="Kards.NET/Kards.NET.csproj" />
         <entry key="Kards.NET/Views/StudyView.axaml" value="Kards.NET/Kards.NET.csproj" />
+        <entry key="Kards.NET/Views/StudyWindow.axaml" value="Kards.NET/Kards.NET.csproj" />
       </map>
     </option>
   </component>

@@ -48,6 +48,7 @@ public partial class App : Application
         serviceCollection.AddTransient<CreateDeckWindowViewModel>();
         
         serviceCollection.AddTransient<EditDeckWindowViewModel>();
+        serviceCollection.AddTransient<StudyWindowViewModel>();
         
 
         serviceCollection.AddSingleton<INavigationService,NavigationService>();
