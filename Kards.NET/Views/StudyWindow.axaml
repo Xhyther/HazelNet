@@ -1,0 +1,61 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Kards.NET.ViewModels"
+        mc:Ignorable="d" Width="800" Height="450"
+        x:DataType="vm:StudyWindowViewModel"
+        x:Class="Kards.NET.Views.StudyWindow"
+        WindowStartupLocation="CenterScreen"
+        SystemDecorations="Full"
+        WindowState="Normal"
+        Title="Study Window">
+
+        <Border Background="#ffffff"
+                Height="400"
+                Width="750"
+                BorderBrush="#475569"
+                CornerRadius="10"
+                Padding = "10"
+                Margin = "10">
+                
+                <Grid ColumnDefinitions="Auto, *, Auto"
+                            VerticalAlignment="Center">
+                    
+                    <Button Grid.Column="0">
+                         <Image  Source="../Assets/Image/black-triangular-left.png" 
+                           Width="30" 
+                           Height="30"
+                           Stretch="Uniform"
+                           Margin="5,5"/>
+                        
+                        
+                    </Button>
+                    
+                   
+                        
+                    <TextBlock Grid.Column="1" Text="{Binding currentDisplay}"  
+                               FontWeight="Bold"
+                               FontSize="40"
+                               FontFamily = "Roboto"
+                               Foreground="#787878"
+                               Margin="15,0"
+                               HorizontalAlignment="Center"/>
+                        
+                        
+                        <Button Grid.Column="2">
+                                <Image  Source="../Assets/Image/black-triangular-right.png" 
+                                        Width="30" 
+                                        Height="30"
+                                        Stretch="Uniform"
+                                        Margin="5,5"/>
+                                
+                        </Button>
+                        
+                </Grid>
+                
+                
+                
+        </Border>
+</Window>
+
